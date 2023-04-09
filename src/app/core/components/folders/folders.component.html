@@ -1,0 +1,97 @@
+<div *ngIf='folders' class="folders-tree">
+
+  <h3 class="title">
+    <span>{{title}}</span>
+  </h3>
+
+  <button class="add-folder" (click)="openCreateDialog(null)">
+    <fa-icon class="plus-icon" [icon]="faPlus"></fa-icon>
+  </button>
+
+  <mat-accordion>
+
+    <mat-expansion-panel *ngFor="let folder of folders" class="node-item">
+      
+      <mat-expansion-panel-header (click)="whenClickItem(folder,false)">
+        <mat-panel-title>
+          <!-- Main folders -->
+          <div class="node-name parent">
+            <!-- <div class="arrow-down"></div> -->
+            <div class="square">
+              {{folder.folderName | substrname | slice:0:2 }}
+            </div>
+            <span class="folder-name" >{{folder.folderName | slice:0:15}}</span> 
+            <div class="options">
+              <button [matMenuTriggerFor]="menu">
+                <fa-icon class="icon" [icon]="faEllipsisH"></fa-icon>
+              </button>
+              <mat-menu #menu="matMenu">
+                <button mat-menu-item (click)="openCreateDialog(folder)">
+                  <fa-icon class="plus-icon" [icon]="faPlus"></fa-icon>
+                  <span class="option-name">{{ 'core.folder.addFolder' | translate }}</span>
+                </button>
+                <button mat-menu-item (click)="openDeleteDialog(folder)">
+                  <fa-icon class="delete-icon" [icon]="faTrashAlt"></fa-icon>
+                  <span class="option-name">{{ 'core.folder.deleteFolder' | translate }}</span>
+                </button>
+              </mat-menu>
+            </div>
+          </div>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+
+      <!-- Sub folders and containers -->
+      <div *ngIf="folder.children" class="children">
+        <mat-accordion>
+          <mat-expansion-panel class="child" *ngFor="let subfolder of folder.children">
+            <mat-expansion-panel-header (click)="whenClickItem(subfolder,true)">
+              <mat-panel-title>
+                <div class="node-name">
+                  <!-- <div [ngClass]="{'arrow-down':isOpen,'arrow-up':!isOpen}"></div> -->
+                  <fa-icon class="folder-icon" [icon]="isOpen ? faFolderOpen : faFolder"></fa-icon>
+                  <span style="font-weight: 100">{{subfolder.folderName}}</span> 
+                  <div class="options">
+                    <button [matMenuTriggerFor]="menu">
+                      <fa-icon class="icon" [icon]="faEllipsisH"></fa-icon>
+                    </button>
+                    <mat-menu #menu="matMenu">
+                      <button mat-menu-item (click)="openCreateDialog(subfolder)">
+                        <fa-icon class="plus-icon" [icon]="faPlus"></fa-icon>
+                        <span class="option-name">{{ 'core.folder.addFolder' | translate }}</span>
+                      </button>
+                      <button mat-menu-item (click)="openDeleteDialog(subfolder)">
+                        <fa-icon class="delete-icon" [icon]="faTrashAlt"></fa-icon>
+                        <span class="option-name">{{ 'core.folder.deleteFolder' | translate }}</span>
+                      </button>
+                    </mat-menu>
+                  </div>
+                </div>
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div *ngIf="subfolder.children" class="children containers">
+              <div *ngFor="let container of subfolder.children">
+                <div class="node-name" (click)="whenClickItem(container)">
+                  <mat-icon>circle</mat-icon>
+                  {{container.folderName}} 
+                  <div class="options">
+                    <button [matMenuTriggerFor]="menu">
+                      <fa-icon class="icon" [icon]="faEllipsisH"></fa-icon>
+                    </button>
+                    <mat-menu #menu="matMenu"> 
+                      <button mat-menu-item (click)="openDeleteDialog(container)">
+                        <fa-icon class="delete-icon" [icon]="faTrashAlt"></fa-icon>
+                        <span class="option-name">{{ 'core.folder.deleteFolder' | translate }}</span>
+                      </button>
+                    </mat-menu>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </div>
+
+    </mat-expansion-panel>
+  </mat-accordion>
+
+</div>

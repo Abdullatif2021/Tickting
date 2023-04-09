@@ -1,0 +1,68 @@
+.accept-wrapper {
+    padding: 2%;
+    width: 100%;
+    float: left;
+}
+
+.accept-wrapper h2 {
+    text-align: left;
+    font-size: 20px;
+    color: #212121;
+    text-transform: capitalize;
+}
+
+/* .accept-wrapper button {
+    color: #000;
+    border-radius: 20px;
+    text-transform: capitalize;
+    border: 0px;
+    font-size: 11px;
+    min-width: 75px;
+    float: right;
+    text-align: center;
+    margin-left: 5px;
+} */
+
+.accept-ticket {
+  color: rgb(0, 0, 0);
+  background-color: #fcda4b;
+  font-size: 11px;
+  border-radius: 25px;
+  text-align: center;
+  font-family: sans-serif;
+  font-weight: 600;
+  min-width: 72px;
+  float: right;
+}
+
+.close-ticket {
+  color: rgb(245, 239, 239);
+  background-color: #c41509;
+  font-size: 11px;
+  border-radius: 25px;
+  text-align: center;
+  font-family: sans-serif;
+  font-weight: 600;
+  min-width: 70px;
+  float: right;
+  margin: 0px 10px
+}
+.button8{
+  display: block;
+  padding: 18px 0px;
+}
+.example-full-width{
+  width: 95%;
+  width: 780px;
+
+}
+.mat-form-field-label {
+  color: rgb(0, 0, 0) !important;
+}
+
+.mat-form-field-ripple {
+  background-color: #ccc !important;
+}
+.mat-focused .mat-form-field-label {
+  color: #000000 !important;
+}

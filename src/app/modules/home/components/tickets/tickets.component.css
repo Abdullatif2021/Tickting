@@ -1,0 +1,28 @@
+.float-button {
+    position: fixed;
+    right: 50px;
+    bottom: 50px;
+}
+
+.float-button button {
+    background-color: #FEDA44;
+    color: #000;
+    width: auto;
+    height: 40px;
+    padding: 0 30px;
+    border-radius: 25px;
+}
+
+.float-button ::ng-deep .mat-fab .mat-button-wrapper {
+    padding: 0 !important;
+    display: inline-block;
+    line-height: 15px;
+}
+
+::ng-deep .mat-progress-bar-fill::after {
+    background-color: #f3f3f3 !important;
+}
+
+::ng-deep .mat-progress-bar-buffer {
+    background-color: #FEDA44 !important;
+}

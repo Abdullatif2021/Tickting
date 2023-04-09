@@ -1,0 +1,168 @@
+﻿{
+  "core": {
+    "auth":{
+      "logout":"Esci"
+    },
+    "search_panal": {
+      "reset": "Ripristina",
+      "search": "Ricerca",
+      "submit": "Invia"
+    },
+    "accept_tick": {
+      "aprrove": "approva",
+      "reject": "rifiutare",
+      "enter": "accedere",
+      "accept": "accetta",
+      "close": "vicina"
+    },
+    "act_det": {
+      "status": "Stato",
+      "prog": "Programmatore",
+      "tester": "Tester",
+      "prior": "Priorita",
+      "creation": "Creazione",
+      "time": "Tempo",
+      "title": "Titolo",
+      "create_activity": "Aggiungi allegato",
+      "Rep": "Rep. Destinazione",
+      "area": "Area problematica",
+      "descr": "Descrizione",
+      "sub": "Sottoattività",
+      "list": "Checklist",
+      "plus": "Nuovo",
+      "att_plus": "Aggiungi Checklist",
+      "att": "Allegati",
+      "att_but": "Aggiungi allegato",
+      "act": "Attività",
+      "search": "Search ...",
+      "new": "New",
+      "save": "save",
+      "delete": "delete",
+      "uploadAttachment": "Upload new attachment",
+      "createActivity": "Aggiungi attivita",
+      "selectContainer": "Select Container",
+      "olderData": "older data",
+      "back":"Invia",
+      "notAllowedFile":"File type not allowed!"
+    },
+    "menu": {
+      "ticketing": "ticketing",
+      "activity": "attivita"
+    },
+    "table": {
+      "subject": "oggetto",
+      "progress": "progresso",
+      "status": "stato",
+      "destination": "rep destination",
+      "problemarea": "area problematica",
+      "assign": "assegnato",
+      "tester": "tester",
+      "priority": "priorita",
+      "time": "tempo",
+      "activity": "attivita",
+      "acceptTicket": "accetta ticket",
+      "createActivity": "Nuovo attivita",
+      "createTicket": "Nuovo ticket"
+    },
+    "level": {
+      "folders": "cartelle",
+      "status": "stato",
+      "priority": "priorita",
+      "assign": "assignato",
+      "tester": "tester"
+    },
+    "modal": {
+      "accept_ticket_title": "vuoi accettare il biglietto"
+    },
+    "button": {
+      "accept": "accetta",
+      "close": "vicina",
+      "close_icon": "clear"
+    },
+    "dialogs":{
+      "deleteFolder":"are you sure you want to delete ({{folderName}})!",
+      "deleteAttachment":"are you sure you want to delete the file!",
+      "cancel":"cancel",
+      "yes":"yes",
+      "done":"done",
+      "youHaveToDelete":"you have to delete {{type}} first !",
+      "haveActivities":"container already have activities !",
+      "success":"folder deleted successfuly !"
+    },
+    "folder":{
+      "addFolder":"New List",
+      "deleteFolder":"Delete List"
+    }
+  },
+  "module": {
+    "create_act": {
+      "tit": "Apri un nuovo Attività",
+      "tit2": "Compila il modulo sottostante per aprire una nuova attività",
+      "name": "Nome dell'attività",
+      "error_name": "You must provide a name",
+      "des": "inserisci la tua descrizione",
+      "error_des": "You must provide a description",
+      "continer": "seleziona contenitore",
+      "error_cont": "Devi selezionare il contenitore",
+      "prio": "selezionare la priorità",
+      "state": "seleziona stato",
+      "range": "Enter a date range",
+      "error_range1": "Invalid start date",
+      "error_range2": "Invalid end date",
+      "close": "Annula",
+      "crea": "Crea attività"
+    },
+    "create_tick": {
+      "tit": "Apri un nuovo Ticket",
+      "tit2": "Compila il modulo sottostante per aprire un nouovo ticket",
+      "Infor": "Informazioni di contatto",
+      "name": "Nome e Cognome",
+      "error_name": "You must provide a name",
+      "sur": "Surname",
+      "error_sur": " You must provide a surname",
+      "email": "Email",
+      "error_ema": "You must provide a email",
+      "validPhonenumber":"You must provide valid phone number",
+      "validEmail":"You must provide valid email",
+      "tel": "Telephone",
+      "error_tel": "You must provide a Phone number",
+      "details": "Informazioni di Ticket",
+      "rep": "Rep Destination",
+      "error_rep": "You must provide a Rep Destination",
+      "area": "Area problematica",
+      "error_area": "You must provide a Area problematica",
+      "link": "Percorso problematica 'Link'",
+      "object": "Oggetto",
+      "error_object": "You must provide a Object",
+      "massege": "Massagio *",
+      "close": "Annula",
+      "crea": "Crea ticket"
+    }
+  },
+  "shared": {
+    "notFound":"not found",
+    "pagination": {
+      "result_per_page": "Risultati per pagina"
+    }
+  },
+  "services": {
+    "entity": {
+      "prio": "Imposta la priorità",
+      "state": "Set state",
+      "upload": "Upload a new attachment",
+      "checked": "checked item",
+      "create_act": "Create activity",
+      "create_tic": "Create ticket",
+      "update1": "Update activity",
+      "create_check": "Create new checklist",
+      "checked_item": "Checked item",
+      "unchecked_item": "Unchecked item",
+      "valid": "Validate ticket",
+      "reject": "Reject ticket",
+      "assign": "Assign",
+      "add_time": "Add time: ",
+      "create_check_item": "Create new checklist item",
+      "delete_attachment": "Deleted attachment"
+    }
+  }
+}

@@ -1,0 +1,89 @@
+.mat-tree-node {
+  min-height: 25px;
+}
+
+.sidebar-banner {
+  display: flex !important;
+  flex-direction: column;
+  background: #fff;
+  width: 100%;
+  padding: 15px;
+  height: 100%;
+  float: left;
+  border-radius: 10px;
+  overflow-y: auto;
+  max-height: 800px;
+}
+
+.example-tree-invisible {
+  display: none;
+}
+
+.example-tree ul, .example-tree li {
+  list-style-type: none;
+  margin: 0;
+}
+
+.button1 {
+  border: none;
+  background: none;
+}
+
+ul {
+  list-style: none;
+  padding-left: 15px;
+}
+
+li {
+  width: 100%;
+  float: left;
+}
+
+label {
+  margin: 0;
+}
+
+.labal {
+  float: right;
+  min-width: 27px;
+  padding: 3px 7px;
+  font-size: 12px;
+  text-align: center;
+  font-weight: bold;
+  border-radius: 50%;
+  background-color: #FEDA44;
+}
+
+.title {
+  padding: inherit;
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+.folder-icon {
+  color: #FEDA44;
+}
+
+ul {
+  list-style-type: none;
+}
+
+li {
+  line-height: 140%;
+}
+
+.folder-button {
+  cursor: pointer;
+  width: 22px;
+  height: 22px;
+  margin-right: 12px;
+}
+
+.folder-button-label {
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.item-name {
+  margin-left: 34px;
+}

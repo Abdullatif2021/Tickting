@@ -1,0 +1,50 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "~@ng-select/ng-select/themes/default.theme.css";
+html, body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: "Helvetica Neue", sans-serif;
+    background: #F0F0F0;
+}
+
+.flex-grid {
+    display: flex;
+    flex-direction: row;
+}
+
+.flex-sidebar {
+    width: 15%;
+    margin: 10px 0 0 10px
+}
+
+.flex-content {
+    width: 85%;
+    margin: 5px;
+    padding: 5px;
+}
+
+::-webkit-scrollbar {
+    width: 0.3em;
+}
+
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #999;
+    outline: 1px solid #d7d7d7;
+}
+
+@media (max-width: 720px) {
+    .flex-grid {
+        flex-direction: column;
+    }
+    .flex-sidebar, .flex-content {
+        width: 100%;
+    }
+}

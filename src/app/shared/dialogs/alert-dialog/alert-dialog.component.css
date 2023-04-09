@@ -1,0 +1,30 @@
+.mat-dialog-title::first-letter {
+  text-transform: capitalize;
+}
+
+.integraa-btn {
+  color: rgb(0, 0, 0);
+  background-color: #fcda4b;
+  border-radius: 20px;
+  padding: 4px;
+  border: 0px;
+  font-size: 11px;
+  float: right;
+  font-weight: 600;
+  min-width: 75px;
+  margin-top: 5px;
+  text-align: center;
+  font-family: sans-serif;
+  margin-left: 10px;
+  outline: none;
+  text-transform: capitalize;
+}
+
+.btn-grey {
+  background-color: #d7d7d7;
+  color: #000;
+}
+
+.hidden {
+  display: none;
+}

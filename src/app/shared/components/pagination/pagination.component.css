@@ -1,0 +1,128 @@
+/* pagination {  */
+
+.rpp-label {
+    font-size: 13px;
+    margin-top: 5px;
+    color: #111;
+}
+
+.ng-select.ng-select-single .ng-select-container {
+    height: 36px;
+    width: 72px;
+}
+
+.rpp-select {
+    margin: 0 20px;
+}
+
+::ng-deep .ng-select.ng-select-single .ng-select-container {
+    height: 36px;
+    width: 75px;
+    border: 0;
+    background: #000;
+}
+
+.pages-container {
+    padding-top: 7px;
+    margin-left: 15px;
+    display: flex;
+}
+
+.page {
+    color: #fff;
+    background-color: #000;
+    border: 1px solid #000;
+    margin: 0px 3px;
+    font-size: 11px;
+    display: flex;
+    text-align: center;
+    padding: 2px;
+    min-width: 22px;
+    cursor: pointer;
+    height: 22px;
+}
+
+.page span {
+    margin: auto;
+}
+
+.next-page, .prev-page, .last-page {
+    background: #FEDA44;
+    color: #000;
+}
+
+.next-page span, .prev-page span {
+    font-size: 18px;
+    margin-top: -5px;
+    margin-left: 3px;
+}
+
+.next-page span {
+    margin-left: 6px;
+}
+
+.page:hover {
+    background-color: #FEDA44;
+    border: 1px solid #FEDA44;
+    color: black;
+}
+
+.page-sep {
+    display: inline-block;
+    margin: 0px 4px;
+}
+
+.active-page {
+    background-color: #FEDA44;
+    border: 1px solid #FEDA44;
+    color: black;
+}
+
+/* } pagination  */
+
+/* Dark theme style */
+
+.dark-theme {
+    color: #fff;
+    background-color: #000;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.dark-theme .rpg-label {
+    color: #fff;
+    margin: 0px;
+    line-height: 2;
+}
+
+.dark-theme .page {
+    color: #fff;
+    border: 1px solid #fff;
+}
+
+.pagination-loading {
+    width: 380px;
+    height: 30px;
+    margin-top: 0px;
+}
+
+.results-count {
+    font-size: 13px;
+    height: 18px;
+    margin: auto 0px;
+    color: #fff;
+}
+
+.rounded-circle {
+    color: #fff;
+    line-height: 1.5;
+}
+
+::ng-deep  .ng-select .ng-select-container .ng-value-container .ng-placeholder {
+    color: #fff;
+}
+
+::ng-deep  .ng-select.ng-select-single .ng-select-container .ng-value-container
+{
+    color: #fff;
+}

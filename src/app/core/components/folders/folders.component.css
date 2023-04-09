@@ -1,0 +1,247 @@
+.title {
+  padding: inherit;
+  margin: 0;
+  margin-bottom: 10px;
+  text-transform: capitalize;
+  float: left;
+}
+
+.folders-tree {
+  width: 100%;
+  float: left;
+}
+
+.node-name {
+  float: left;
+  position: relative;
+  width: 100%;
+}
+
+.node-item {
+  cursor: pointer;
+  float: left;
+  width: 100%;
+}
+
+.node-name span {
+  font-weight: 500;
+  margin-left: 8px;
+  display: inline-block;
+  margin-top: 2px;
+  max-width: 75%;
+  font-size: 12px;
+}
+
+.children {
+  margin-left: 10px;
+}
+
+.child {
+  margin: 5px 0;
+}
+
+.folder-icon {
+  float: left;
+  color: #FEDA44;
+}
+
+.square {
+  min-width: 20px;
+  font-size: 12px;
+  padding: 0 3px;
+  border-radius: 5px;
+  border: 1px solid #000;
+  float: left;
+  text-align: center;
+  background-color: #FEDA44;
+}
+
+.children .node-name {
+  margin: 5px 0;
+}
+
+.children .arrow-down, .children .arrow-up {
+  margin-top: 7px;
+}
+
+.arrow-down {
+  float: left;
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid #d7d7d7;
+  margin-top: 10px;
+  margin-right: 5px
+}
+
+.arrow-up {
+  float: left;
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid #d7d7d7;
+  margin-top: 10px;
+  margin-right: 5px
+}
+
+.folder-name {
+  float: left;
+}
+
+.plus-icon, .delete-icon, .search-icon {
+  float: left;
+  color: #C7C7C7;
+  font-size: 13px;
+  margin-right: 10px;
+}
+
+.plus-icon:hover, .delete-icon:hover {
+  color: #FEDA44;
+}
+
+.delete-icon:hover {
+  color: #DE2F2F;
+}
+
+.mat-icon {
+  float: left;
+  font-size: 7px;
+  color: #d7d7d7;
+  height: 20px;
+  line-height: 20px;
+  width: 15px;
+}
+
+.parent.add-subfolder {
+  margin: 0;
+}
+
+.add-subfolder {
+  margin-right: 15px;
+  float: right;
+}
+
+.cont.add-subfolder {
+  margin-right: 16px;
+}
+
+.add-folder {
+  background-color: #FEDA44;
+  border: none;
+  border-radius: 50%;
+  float: right;
+  margin-right: 5px;
+  margin-bottom: 15px;
+}
+
+.add-folder .plus-icon {
+  color: #000;
+  font-size: 12px;
+  margin: 0;
+}
+
+::ng-deep .mat-snack-bar-container span::first-letter {
+  text-transform: capitalize !important;
+}
+
+::ng-deep .green-snackbar {
+  background: rgb(47, 222, 74) !important;
+  color: white !important;
+}
+
+::ng-deep .red-snackbar {
+  background: #DE2F2F !important;
+  color: white !important;
+}
+
+.mat-expansion-panel {
+  box-shadow: none;
+}
+
+.mat-expansion-panel-header {
+  height: auto;
+  padding: 5px 5px;
+  box-sizing: border-box;
+  flex-direction: row-reverse;
+  border-radius: 5px;
+}
+
+.mat-expansion-panel-header-title {
+  margin: 0;
+}
+
+::ng-deep .mat-expansion-panel-header .mat-expansion-indicator {
+  margin-right: 10px;
+  margin-top: -5px;
+}
+
+.children .mat-expansion-panel-header {
+  padding: 0 2px;
+}
+
+::ng-deep .mat-expansion-panel-body {
+  padding: 0px !important;
+}
+
+.options {
+  float: right;
+  display: block;
+  text-transform: capitalize;
+  position: absolute;
+  top: 0px
+}
+
+.parent>.options {
+  right: -3px;
+}
+
+.children .options {
+  right: 0px;
+}
+
+.containers .options {
+  right: 2px;
+}
+
+.node-name:hover .options {
+  display: block;
+}
+
+.options button {
+  border: none;
+  background: none;
+}
+
+.options button .icon {
+  color: #d7d7d7;
+  float: right;
+  height: 12px;
+}
+
+.delete-icon {
+  color: #DE2F2F;
+  font-size: 12px;
+}
+
+.option-name {
+  text-transform: capitalize;
+  letter-spacing: 0.5px;
+  font-size: 13px;
+  color: #000;
+}
+
+::ng-deep .mat-menu-content:not(:empty) {
+  padding: 0 !important;
+  min-width: 180px;
+}
+
+.mat-menu-item {
+  line-height: 35px;
+  height: 35px;
+}
+
+::ng-deep .mat-menu-panel {
+  min-height: 30px !important;
+}

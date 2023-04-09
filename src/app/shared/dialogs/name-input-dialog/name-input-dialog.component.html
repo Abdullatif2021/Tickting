@@ -1,0 +1,25 @@
+<h2 mat-dialog-title>{{title}}</h2>
+<mat-dialog-content *ngIf="keys && keys.length">
+  <form [formGroup]="formGroup">
+      <div class="custom-fileds-row" *ngFor="let key of keys">
+          <mat-form-field class="field">
+              <mat-label>{{key.label}}</mat-label>
+              <input matInput placeholder="{{key.placeHolder}}" formControlName="{{key.key}}">
+          </mat-form-field>
+      </div>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions class="actions">
+  <button
+    class="integraa-btn1"
+    (click)="close()"
+  >Close</button>
+
+  <button
+    class="integraa-btn"
+    [disabled]="!formGroup.valid"
+    (click)="save()"
+  >Save</button>
+
+
+</mat-dialog-actions>

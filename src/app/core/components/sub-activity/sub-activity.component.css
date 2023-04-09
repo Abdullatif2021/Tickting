@@ -1,0 +1,428 @@
+/* modal */
+.jw {
+  position: fixed;
+  display: none;
+  top: -42px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  z-index: 1000;
+  overflow: auto;
+  }
+.body {
+      background: #fff;
+      padding: 0px;
+      border-radius: 10px;
+      margin: 5% auto;
+      max-width: 96%;
+      max-height: 1000px;
+      position: relative;
+      overflow-y: hidden;
+      overflow-x: hidden;
+
+  }
+.jw-background {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #000;
+  opacity: 0.75;
+  z-index: 900;
+}
+
+
+body.jw-open {
+overflow: hidden;
+}
+
+/* modal */
+
+
+
+
+
+
+.search-panel {
+background-color: #fff;
+padding: 10px 30px;
+margin: 0 0 15px 0;
+display: flex;
+border-radius: 15px;
+}
+
+.example-form-field {
+width: 200px;
+}
+
+.search-input, .search-input:hover, .search-input:focus {
+width: 290px;
+border: 0;
+outline: 0;
+height: 30px;
+border-bottom: 1px solid #999;
+}
+
+.integraa-btn {
+margin: -6px;
+color: rgb(0, 0, 0);
+background-color: #fcda4b;
+border-radius: 20px;
+padding: 4px;
+border: 0px;
+font-size: 11px;
+font-weight: 600;
+min-width: 75px;
+margin-top: 5px;
+text-align: center;
+font-family: sans-serif;
+margin-left: 10px;
+}
+
+.header88 {
+border-radius: 15px;
+padding: 0px;
+text-align: left;
+background: #000000;
+color: rgb(247, 197, 33);
+font-size: 25px;
+top: 0;
+z-index: 111111111111;
+}
+
+.header88 p {
+padding: 16px;
+}
+
+.example-form {
+min-width: 150px;
+max-width: 500px;
+width: 100%;
+}
+
+.example-full-width {
+width: 100%;
+padding-left: 30px;
+}
+
+.font {
+font-weight: 410;
+}
+
+.button {
+position: relative;
+padding-left: 1044px;
+padding-top: 20px;
+}
+
+.button1 {
+margin: -6px;
+color: rgb(245, 239, 239);
+background-color: #c41509;
+border-radius: 20px;
+padding: 9px;
+border: 0px;
+font-size: 11px;
+font-weight: 600;
+min-width: 75px;
+margin-top: 5px;
+text-align: center;
+font-family: sans-serif;
+margin-left: 10px;
+}
+
+.attachment_button{
+float: right;
+width: 132px;
+height: 23px;
+margin: -37px 5px;
+background-color: #fcda4b;
+color: rgb(0, 0, 0);
+border-radius: 11px;
+border: none;
+}
+.button2 {
+margin: -6px;
+color: rgb(0, 0, 0);
+background-color: #fcda4b;
+border-radius: 20px;
+padding: 9px;
+border: 0px;
+font-size: 11px;
+font-weight: 600;
+min-width: 75px;
+margin-top: 5px;
+text-align: center;
+font-family: sans-serif;
+margin-left: 10px;
+}
+.button3 {
+color: rgb(0, 0, 0);
+background-color: #fcda4b;
+border-radius: 20px;
+border: 0px;
+padding-left: 4px;
+margin-left: 35px;
+margin-top: 4px;
+font-size: 11px;
+font-weight: 600;
+min-width: 70px;
+text-align: center;
+font-family: sans-serif;
+}
+
+.NgxEditor__Wrapper {
+height: 205px;
+}
+
+.tool {
+display: none;
+}
+
+/* start modal 2 */
+.main{
+width: 100%;
+height: 100%;
+}
+.header{
+background-color: #9c9c9c14;
+height: 32px;
+}
+.button5{
+font-size: 0px;
+float: right;
+display: block;
+margin-right: 10px;
+background: none;
+margin-top: 3px;
+border: none;
+background-color: #fcda4b;
+border-radius: 3px;
+padding-left: 2px;
+padding-right: 2px;
+
+}
+.button4{
+font-size: 0px;
+float: right;
+padding-left: 2px;
+padding-right: 2px;
+display: block;
+margin-right: 20px;
+background: none;
+margin-top: 3px;
+border: none;
+background-color: #fcda4b;
+border-radius: 3px;
+}
+.path{
+  font-weight: 500;
+  padding-left: 6%;
+  margin: -20px 20px;
+  position: absolute;
+}
+.left {
+height: 100%;
+float: left;
+padding-left: 2%;
+width: 60%;
+background-color: rgb(255, 255, 255);
+overflow-x: hidden;
+padding-top: 0px;
+max-height: 850px;
+overflow: auto;
+}
+::-webkit-scrollbar {
+  width: 4px;
+}
+.right {
+height: 100%;
+max-height: 850px;
+overflow: auto;
+float: left;
+width: 40%;
+background-color: #FBFBFB;
+overflow-x: hidden;
+
+
+}
+
+.inline ul {
+z-index: 200;
+position: sticky;
+margin: 13px -146px;
+color: #535353;
+padding: 0;
+background-color: rgb(255, 255, 255);
+}
+.vl {
+border-left: 1px solid#80808014;
+height: 100%;
+position: absolute;
+left: 60%;
+right: 40%;
+/* margin-left: -3px; */
+top: 0;
+}
+.inline .header {
+border-left: 1px solid#9c9c9c14;
+height: 100%;
+position: absolute;
+left: 60%;
+right: 40%;
+/* margin-left: -3px; */
+top: 0;
+}
+.inline li {
+float: left;
+display: block;
+color: rgb(12, 11, 11);
+text-align: center;
+padding-left: 10%;
+text-decoration: none;
+}
+hr{
+margin-top: 3rem;
+margin-bottom: 0rem;
+}
+#context {
+font-weight: 600;
+color: #B3B3B3;
+}
+
+.activity-info {
+float: left;
+margin: 30px 0;
+}
+
+.label {
+position: absolute;
+margin: -3px -20px;
+color: rgb(255, 255, 255);
+padding: 5px 21px;
+font-family: Arial;
+border-radius: 5px;
+background-color: #dd3030;
+}
+
+#title {
+font-weight: bold;
+}
+
+#num {
+position: absolute;
+margin: -38px 68px;
+font-size: 13px;
+}
+
+/* start checkbox */
+
+.checklist-item {
+position: relative;
+padding-left: 35px;
+margin-bottom: 12px;
+cursor: pointer;
+font-size: 22px;
+-webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+
+.checklist-item input {
+position: absolute;
+opacity: 0;
+cursor: pointer;
+}
+
+/* Create a custom checkbox */
+
+.checkmark {
+position: absolute;
+top: 0;
+left: 0;
+height: 20px;
+width: 20px;
+border-radius: 50%;
+background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+
+.checklist-item:hover input~.checkmark {
+background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+
+.checklist-item input:checked~.checkmark {
+background-color: #fcda4b;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+
+.checkmark:after {
+content: "";
+position: absolute;
+display: none;
+}
+
+/* Show the checkmark when checked */
+
+.checklist-item input:checked~.checkmark:after {
+display: block;
+}
+
+/* Style the checkmark/indicator */
+
+.checklist-item .checkmark:after {
+left: 6px;
+top: 2px;
+width: 8px;
+height: 14px;
+border: solid rgb(255, 255, 255);
+border-width: 0 3px 3px 0;
+-webkit-transform: rotate(45deg);
+-ms-transform: rotate(45deg);
+transform: rotate(45deg);
+}
+
+.check {
+margin: 0px -35px;
+}
+
+/* end checkbox */
+.btn-default{
+
+color: #535353ee;
+font-size: 30px;
+font-size: 40px;
+border: none;
+background-color: rgb(255, 255, 255);
+}
+
+/* end modal 2 */
+
+.actions {
+float: left;
+width: 100%;
+}
+
+.actions div {
+float: left;
+clear: both;
+margin-bottom: 15px;
+}
+
+.actions p {
+float: right;
+}
+
+.checklist-container {
+float: left;
+}

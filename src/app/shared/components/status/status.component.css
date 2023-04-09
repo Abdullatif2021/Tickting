@@ -1,0 +1,12 @@
+.status-wrap span {
+    display: block;
+    text-align: center;
+    margin: 0px auto;
+    color: #fff;
+    padding: 11% 0;
+} 
+
+.last .status-wrap span 
+{
+    border: 0;
+}

@@ -1,0 +1,38 @@
+.integraa-btn {
+  margin: -6px;
+  color: rgb(0, 0, 0);
+  background-color: #fcda4b;
+  border-radius: 20px;
+  padding: 4px;
+  border: 0px;
+  float: right;
+  font-size: 11px;
+  font-weight: 600;
+  min-width: 75px;
+  margin-top: 5px;
+  text-align: center;
+  font-family: sans-serif;
+  margin-left: 10px;
+}
+.integraa-btn1 {
+  margin: -6px;
+  color: rgb(255, 255, 255);
+  background-color: #c41509;
+  border-radius: 20px;
+  padding: 4px;
+  border: 0px;
+  float: right;
+  font-size: 11px;
+  font-weight: 400;
+  min-width: 75px;
+  margin-top: 5px;
+  text-align: center;
+  font-family: sans-serif;
+  margin-left: 10px;
+}
+.actions{
+  float: right;
+}
+.field{
+  width: 100%;
+}

@@ -1,0 +1,303 @@
+<div *ngIf="show">
+  <main *ngIf="configuration">
+
+    <!--  Header of dialog-->
+    <div class="header">
+      <button class="back-btn" (click)="goBack()" *ngIf="configuration.entityType != 'TICKET'">
+        <fa-icon [icon]="faArrowLeft"></fa-icon>
+        <span>{{ 'core.act_det.back' | translate }}</span>
+      </button>
+      <p class="path">{{configuration.path}}</p>
+      <button class="button4" (click)="close()"><img src="assets\images\exit.png"></button>
+      <button (click)="hide_base()" class="button5"><img src="assets\images\minimize.png"></button>
+    </div>
+
+    <!--  Header details-->
+    <div class="inline">
+      <form [formGroup]="mainDetailsFormGroup">
+        <ul>
+          <!--States-->
+          <li>
+            <div class="inline-group">
+              <p class="context">{{ 'core.act_det.status' | translate }}</p>
+              <mat-form-field appearance="fill" class="parent-select"
+                [ngStyle]="{'background-color':configuration.selectedStates.color,'color':'#fff'}">
+                <mat-select formControlName="state" [disabled]="!canChangeEntityState"
+                  (selectionChange)="whenStateChanged($event)">
+                  <mat-option *ngFor="let state of configuration.states" [value]="state.id">
+                    <span class="color-circle" [ngStyle]="{'background-color':state.color}"></span>
+                    <div>{{state.label}}</div>
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+          </li>
+          <!--Destination -->
+          <li *ngIf="configuration.entityType === 'TICKET'">
+            <div class="inline-group">
+              <p class="context"> {{ 'core.act_det.Rep' | translate }} </p>
+              <span>{{configuration.destination}}</span>
+            </div>
+          </li>
+          <!--Area problem-->
+          <li *ngIf="configuration.entityType === 'TICKET'">
+            <div class="inline-group">
+              <p class="context"> {{ 'core.act_det.area' | translate }} </p>
+              <span>
+                {{ configuration.problemArea }}
+              </span>
+            </div>
+          </li>
+          <!-- Assigned users-->
+          <li *ngIf="configuration.entityType === 'ACTIVITY'">
+            <div class="inline-group">
+              <p class="context">{{ 'core.act_det.prog' | translate }}</p>
+              <app-user-badge [canAssignUser]="true" [items]="assignedUser"></app-user-badge>
+              <fa-icon *ngIf="canCreateActivity" class="plus-circle-icon" [icon]="faPlusCircle"
+                (click)="toggleUsersList()"></fa-icon>
+              <div class="auto-complete-wrap" (mouseleave)="ClosetoggleUser()" [ngClass]="{'active': listUserClicked}">
+                <app-assign-users [users]="programmersMembers" [entityId]="entityId" [entityType]="entityType"
+                  [clickedUser]="assignedUser" (userClicked)="assignNewUser($event, 'PROGREMMER')"></app-assign-users>
+              </div>
+            </div>
+          </li>
+          <!-- Testers users-->
+          <li *ngIf="configuration.entityType === 'ACTIVITY'">
+            <div class="inline-group">
+              <p class="context">{{ 'core.act_det.tester' | translate }}</p>
+              <app-user-badge [canAssignUser]="true" [items]="testers"></app-user-badge>
+              <fa-icon *ngIf="canCreateActivity" class="plus-circle-icon" [icon]="faPlusCircle"
+                (click)="toggleTestersList()"></fa-icon>
+              <div class="auto-complete-wrap" (mouseleave)="ClosetoggleTester()"
+                [ngClass]="{'active': listTestersClicked}">
+                <app-assign-users [users]="testersMembers" [entityId]="entityId" [entityType]="entityType"
+                  [clickedUser]="testers" (userClicked)="assignNewUser($event, 'TESTER')"></app-assign-users>
+              </div>
+            </div>
+          </li>
+          <!--Priorities-->
+          <li>
+            <div class="inline-group priority">
+              <p class="context">{{ 'core.act_det.prior' | translate }}</p>
+              <mat-form-field appearance="fill" class="parent-select" [ngStyle]="{'color':selectedPriority.color}">
+                <mat-select formControlName="priority" [disabled]="!canChangeEntityPriority"
+                  (selectionChange)="whenPriorityChanged($event)">
+                  <mat-option *ngFor="let item of configuration.priorities" [value]="item.id">
+                    <span class="color-circle" [ngStyle]="{'background-color':item.color}"></span>
+                    <div>{{item.label}}</div>
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+          </li>
+          <!--Creation date-->
+          <li>
+            <div class="inline-group">
+              <p class="context">{{ 'core.act_det.creation' | translate }}</p>
+              <span>{{configuration.creationDate}}</span>
+            </div>
+          </li>
+          <!--Tracked time-->
+          <li>
+            <div (mouseleave)="ClosetoggleTimeTracker()" style="cursor: pointer;" (click)="toggleTimeTracker()"
+              class="inline-group">
+              <p class="context">{{ 'core.act_det.time' | translate }}</p>
+              <span>{{trackedTime}}</span>
+              <app-time-tracker *ngIf="timeTrackerOpened" (saveNewValue)="addMinToTimeTrack($event)"></app-time-tracker>
+            </div>
+          </li>
+        </ul>
+      </form>
+    </div>
+
+    <!-- Content -->
+
+    <div class="split left">
+      <div class="content">
+        <!--  Base information -->
+        <div class="activity-info">
+          <form [formGroup]="baseInformationFormGroup">
+            <!--    Title of entity      -->
+            <mat-form-field appearance="fill">
+              <mat-label>{{ 'core.act_det.title' | translate }}</mat-label>
+              <input matInput formControlName="title" (focusout)="updateEntityInformation()">
+              <!--    Description of entity      -->
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+              <mat-label>{{ 'core.act_det.descr' | translate }}</mat-label>
+              <textarea matInput formControlName="description" (focusout)="updateEntityInformation()"></textarea>
+            </mat-form-field>
+          </form>
+        </div>
+        <!-- End of base information -->
+
+        <!--  Activities    -->
+        <div class="sub-activities" *ngIf="canCreateActivity">
+          <button *ngIf="!configuration.parentActivityId" class="attachment_button"
+            (click)="toggleNewActivityInput()">{{'core.act_det.createActivity' | translate }}</button>
+          <h4 class="title">{{ activitiesTitle | translate }}</h4>
+          <div class="sub-activities-groups">
+            <div *ngFor="let activity  of configuration.activities" class="subactivity">
+              <ul class="sub_ul">
+                <li>
+                  <span class="color-square" [ngStyle]="{'background-color': activity.state ? activity.state.color : ''}"></span>
+                </li>
+                <li>
+                  <p class="sub_text" (click)="openActivity(activity)">
+                    {{activity.name}}
+                  </p>
+                  <span class="actions">
+                    <img *ngIf="!activity.total_checkList_items" src="assets\images\add.png">
+                    <span *ngIf="!activity.total_checkList_items" class="count">{{activity.checked_checklist_items + '/'
+                      +
+                      activity.total_checkList_items}}</span>
+                    <img *ngIf="!activity.attachments" class="attachment-icon" src="assets\images\clip (2).png">
+                  </span>
+                </li>
+                <li class="state" [ngStyle]="{'background-color': activity.state ? activity.state.color : ''}">
+                  <span>{{activity.state ? activity.state.label : ''}}</span>
+                </li>
+                <li style="padding: 14px;">
+                  <app-user-badge [canAssignUser]="true" [items]="activity.assignedUsers"></app-user-badge>
+                </li>
+                <li>
+                  <span [ngStyle]="{'color': activity.priority ? activity.priority.color : ''}">
+                    {{activity.priority ? activity.priority.label : ''}}
+                  </span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div *ngIf="newActivityInputClicked" class="add-activity-item">
+            <div>
+              <select #activityContainer>
+                <option *ngFor="let container of containers" [value]="container.id">
+                  <div>{{container.name}}</div>
+                </option>
+              </select>
+              <mat-form-field appearance="fill">
+                <input matInput #activityInput placeholder="{{'core.act_det.new' | translate}}">
+              </mat-form-field>
+            </div>
+            <div>
+              <fa-icon [icon]="faTimes" class="close-btn" (click)="toggleNewActivityInput()"></fa-icon>
+              <button class="create-activity"
+                (click)="createNewActivity(activityContainer, activityInput)">{{'core.act_det.save' | translate
+                }}</button>
+            </div>
+          </div>
+        </div>
+        <!--  End of activities    -->
+
+        <!--   Checklists   -->
+        <div *ngFor="let checklist of configuration.checkList" class="checklist-container">
+          <h4 class="title">
+            <span>
+              <input #checklistDesc type="text" class="default-input-text" [value]="checklist.description"
+                (focusout)="updateChecklistDescription(checklist, checklistDesc.value)" />
+            </span>
+            <p class="checklist-count">{{checklist.checkedChildCount + '/' + checklist.allChildCount}}</p>
+            <div class="options" *ngIf="canAddChecklistItem">
+              <button [matMenuTriggerFor]="menu">
+                <fa-icon class="icon" [icon]="faEllipsisV"></fa-icon>
+              </button>
+              <mat-menu #menu="matMenu">
+                <button mat-menu-item (click)="deleteChecklist(checklist,null)">
+                  <fa-icon class="delete-icon" [icon]="faTrashAlt"></fa-icon>
+                  <span class="option-name">{{ 'core.act_det.delete' | translate }}</span>
+                </button>
+              </mat-menu>
+            </div>
+          </h4>
+          <div *ngFor="let child of checklist.children" class="checklist-items">
+            <div class="checklist-item">
+              <div class="check">
+                <input type="checkbox" [(ngModel)]="child.checked" [checked]="child.checked"
+                  (change)="toggleItemInChecklist(child, checklist)" />
+                <span class="checkmark"></span>
+              </div>
+            </div>
+            <input #childDesc type="text" class="default-input-text" [value]="child.description"
+              (focusout)="updateChecklistDescription(child, childDesc.value)" />
+            <div class="options" *ngIf="canAddChecklistItem">
+              <button [matMenuTriggerFor]="menu">
+                <fa-icon class="icon" [icon]="faEllipsisV"></fa-icon>
+              </button>
+              <mat-menu #menu="matMenu">
+                <button mat-menu-item (click)="deleteChecklist(child,checklist)">
+                  <fa-icon class="delete-icon" [icon]="faTrashAlt"></fa-icon>
+                  <span class="option-name">{{ 'core.act_det.delete' | translate }}</span>
+                </button>
+              </mat-menu>
+            </div>
+          </div>
+
+          <div class="actions">
+            <div class="add-checklist-item">
+              <button class='btn-default'>+</button>
+              <mat-form-field appearance="fill">
+                <input #element matInput placeholder="{{'core.act_det.new' | translate}}"
+                  (focusout)="createNewChecklist(element, checklist)">
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+
+        <div class="actions" *ngIf="canAddChecklist">
+          <div>
+            <button class='btn-default' (click)="toggleNewChecklistInput()">+</button>
+            <p>{{ 'core.act_det.att_plus' | translate }}</p>
+          </div>
+          <div class="add-checklist-item">
+            <mat-form-field *ngIf="newChecklistInputClicked" appearance="fill">
+              <input matInput #newCheckList placeholder="{{'core.act_det.new' | translate}}"
+                (focusout)="createNewChecklist(newCheckList)">
+            </mat-form-field>
+          </div>
+        </div>
+        <!--  End of checklist    -->
+
+        <!-- attachment -->
+        <div class="attachments">
+          <h4 class="title">{{ 'core.act_det.att' | translate }}</h4>
+          <div class="file-upload">
+            <input #htmlFileInputElement type="file" style="display: none" (change)="uploadNewAttachment()">
+            <fa-icon [icon]="faPlusCircle" (click)="htmlFileInputElement.click()">{{'core.act_det.uploadAttachment'}}
+            </fa-icon>
+          </div>
+          <div *ngFor="let attachment of configuration.attachments" class="file-thumbnail">
+            <div *ngIf="attachment.type!='mp4'" class="media-attachment">
+              <img src="{{baseUrl + '/' + attachment.filePath}}">
+            </div>
+            <div *ngIf="attachment.type=='mp4'" class="media-attachment">
+              <a target="_blank" href="{{baseUrl + '/' + attachment.filePath}}">
+                <fa-icon class="video-icon" [icon]="faPlay"></fa-icon>
+              </a>
+            </div>
+            <div class="file-name-overlay"><span>{{attachment.filename}}</span></div>
+            <div class="actions">
+              <div class="download">
+                <fa-icon [icon]="faDownload"></fa-icon>
+              </div>
+              <div class="view" (click)="viewAttachment(attachment)">
+                <fa-icon [icon]="faEye"></fa-icon>
+              </div>
+              <div class="delete" (click)="deleteAttachment(attachment)">
+                <fa-icon [icon]="faTrashAlt"></fa-icon>
+              </div> 
+            </div>
+          </div>
+        </div>
+        <!-- End of attachment     -->
+      </div>
+    </div>
+
+    <div class="vl"></div>
+
+    <div class="split right">
+      <app-comment [logs]="configuration.logs" [canAddComment]="canCreateComment" [currentPage]="currentPageOfLogs"
+        [totalPages]="maximumLogsPage" (commentCreated)="saveNewComment($event)" (loadMore)="loadLogs()">
+      </app-comment>
+    </div>
+
+  </main>

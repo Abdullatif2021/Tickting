@@ -1,0 +1,15 @@
+<div class="sidebar-list">
+    <h3 class="title">
+        <span>{{title}}</span>
+        <div (click)="clearFilters()" [ngClass]="{'active': isActive}" class="close-icon">
+            {{'core.button.close_icon' | translate}}
+        </div>
+    </h3>
+    <ul>
+        <li *ngFor="let item of items" (click)="updateFilter(item.id)" [ngClass]="{'selected': selectedItem == item.id}">
+            <span *ngIf="item.color" class="color-circle" [ngStyle]="{'background-color':item.color}"></span>
+            <div>{{item.label || item.name}}</div>
+            <label class="labal">{{item.count}}</label>
+        </li>
+    </ul>
+</div>

@@ -1,0 +1,499 @@
+.flex-content {
+  width: 100%;
+  padding: 0;
+}
+
+::ng-deep #textBlock {
+  padding-left: 20px;
+  padding-right: 20px;
+  line-height: 1.6em;
+}
+
+::ng-deep .center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 20px;
+  width: 300px;
+}
+
+
+::ng-deep .mat-progress-bar-fill::after {
+  background-color: #f3f3f3 !important;
+}
+
+::ng-deep .mat-progress-bar-buffer {
+  background-color: #FEDA44 !important;
+}
+
+
+
+.file-thumbnail img {
+  max-width: 100%;
+  height: 100px;
+}
+
+.file-thumbnail .actions {
+  display: flex;
+  flex-direction: row;
+  margin: 5% 0;
+}
+
+.file-thumbnail .actions div {
+  margin: 0 12px;
+}
+
+.file-thumbnail .actions .download {
+  color: #DE2F2F;
+  margin: 0px auto;
+}
+
+.file-thumbnail:hover, .file-upload:hover {
+  opacity: 0.8;
+}
+
+.file-thumbnail h5 {
+  text-align: center;
+  margin: 5px 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+h2 {
+  margin: 0;
+}
+
+input[type="tel"] {
+  -moz-appearance: textfield;
+}
+
+input[type="tel"]::-webkit-inner-spin-button, input[type="tel"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.group {
+  margin: 25px 0px;
+}
+
+.header {
+  border-radius: 15px;
+  padding: 0px;
+  text-align: left;
+  background: #000000;
+  color: rgb(247, 197, 33);
+  font-size: 25px;
+  position: sticky;
+  top: 0;
+}
+
+.header p {
+  padding: 16px;
+}
+
+/* Creat Ticket */
+
+.create-ticket-wrap {
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 5px;
+  float: left;
+  width: 100%;
+  padding-bottom: 40px;
+}
+
+.header88 {
+  border-radius: 15px;
+  padding: 0px;
+  text-align: left;
+  background: #000000;
+  color: rgb(247, 197, 33);
+  font-size: 25px;
+  top: 0;
+  z-index: 111111111111;
+}
+
+.header88 p {
+  padding: 16px;
+}
+
+.width-wrapper {
+  max-width: 50%;
+  display: block;
+}
+
+.content {
+  padding-top: 10px;
+  max-width: 100%;
+  margin: 0px auto;
+  padding-left: 2%;
+}
+
+.mat-form-field-label {
+  color: rgb(0, 0, 0) !important;
+}
+
+.mat-form-field-ripple {
+  background-color: #ccc !important;
+}
+
+.mat-focused .mat-form-field-label {
+  color: #000000 !important;
+}
+
+.mat-form-field-wrapper .mat-form-field-flex {
+  background: none;
+}
+
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+  margin: 15px 0px;
+}
+
+.font {
+  font-weight: 410;
+}
+
+.button {
+  position: relative;
+  padding-top: 20px;
+  float: right;
+}
+
+.button1 {
+  color: rgb(245, 239, 239);
+  background-color: #c41509;
+  border-radius: 20px;
+  padding: 6px;
+  border: 0px;
+  font-size: 11px;
+  font-weight: 600;
+  min-width: 92px;
+  margin-top: 5px;
+  text-align: center;
+  font-family: sans-serif;
+}
+
+.button2 {
+  color: rgb(0, 0, 0);
+  background-color: #fcda4b;
+  border-radius: 20px;
+  padding: 6px;
+  border: 0px;
+  font-size: 11px;
+  font-weight: 600;
+  min-width: 95px;
+  text-align: center;
+  font-family: sans-serif;
+  margin-left: 20px;
+}
+
+.button3 {
+  color: rgb(0, 0, 0);
+  background-color: #fcda4b;
+  border-radius: 20px;
+  border: 0px;
+  padding-left: 4px;
+  margin-left: 35px;
+  margin-top: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  min-width: 70px;
+  text-align: center;
+  font-family: sans-serif;
+}
+
+.p {
+  font-weight: 500;
+  color: #535353;
+}
+
+.NgxEditor__Wrapper {
+  height: 205px;
+}
+
+.tool {
+  display: none;
+}
+
+/* start modal 2 */
+
+.main {
+  width: 100%;
+  height: 100%;
+}
+
+.header {
+  background-color: #9c9c9c14;
+  height: 32px;
+}
+
+.button5 {
+  font-size: 0px;
+  float: right;
+  display: block;
+  margin-right: 14px;
+  background: none;
+  margin-top: -33px;
+  border: none;
+  background-color: #fcda4b;
+  border-radius: 3px;
+  padding-left: 2px;
+  padding-right: 2px;
+}
+
+.button4 {
+  font-size: 0px;
+  float: right;
+  padding-left: 2px;
+  padding-right: 2px;
+  display: block;
+  margin-right: 44px;
+  background: none;
+  margin-top: -33px;
+  border: none;
+  background-color: #fcda4b;
+  border-radius: 3px
+}
+
+.left {
+  height: 100%;
+  float: left;
+  padding-left: 25px;
+  width: 60%;
+  background-color: rgb(255, 255, 255);
+  overflow-x: hidden;
+  padding-top: 0px;
+}
+
+.right {
+  height: 100%;
+  float: left;
+  margin-top: 2rem;
+  width: 40%;
+  background-color: rgb(255, 255, 255);
+  overflow-x: hidden;
+  padding-top: 0px;
+}
+
+.inline ul {
+  z-index: 200;
+  position: sticky;
+  margin: 0;
+  color: #535353;
+  padding: 0;
+  background-color: rgb(255, 255, 255);
+}
+
+.inline li {
+  float: left;
+  display: block;
+  color: rgb(12, 11, 11);
+  text-align: center;
+  padding: 0px 100px;
+  text-decoration: none;
+}
+
+hr {
+  margin-top: 3rem;
+  margin-bottom: 0rem;
+}
+
+#context {
+  font-weight: 600;
+  color: #535353ee;
+}
+
+.activity-info {
+  float: left;
+  margin: 30px 0;
+}
+
+.label {
+  position: absolute;
+  margin: -3px -20px;
+  color: rgb(255, 255, 255);
+  padding: 5px 21px;
+  font-family: Arial;
+  border-radius: 5px;
+  background-color: #dd3030;
+}
+
+#title {
+  font-weight: bold;
+}
+
+#num {
+  position: absolute;
+  margin: -38px 68px;
+  font-size: 13px;
+}
+
+/* start checkbox */
+
+.checklist-item {
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+
+.checklist-item input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom checkbox */
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+
+.checklist-item:hover input~.checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+
+.checklist-item input:checked~.checkmark {
+  background-color: #fcda4b;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+
+.checklist-item input:checked~.checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+
+.checklist-item .checkmark:after {
+  left: 6px;
+  top: 2px;
+  width: 8px;
+  height: 14px;
+  border: solid rgb(255, 255, 255);
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.check {
+  margin: 0px -35px;
+}
+
+/* end checkbox */
+
+.btn-default {
+  color: cornsilk;
+  font-size: 30px;
+  font-size: 40px;
+  background: none;
+  border: none;
+}
+
+/* end modal 2 */
+
+.actions {
+  float: left;
+  width: 100%;
+}
+
+.actions div {
+  float: left;
+  clear: both;
+  margin-bottom: 15px;
+}
+
+.actions p {
+  float: right;
+}
+
+.checklist-container {
+  float: left;
+}
+
+.uploader-input {
+  max-width: 100% !important;
+  border-radius: 15px;
+}
+
+.uploader-wrapper  .file-drop-wrapper{
+  padding: 20px 0 !important;
+}
+
+.uploader-wrapper  .file-drop-wrapper #dropZone
+{
+  max-width: 100% !important;
+}
+
+@media (max-width: 720px) {
+  .width-wrapper {
+    max-width: 100%;
+  }
+}

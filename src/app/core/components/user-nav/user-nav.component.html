@@ -1,0 +1,282 @@
+<!-- top nav -->
+<div class="top-nav">
+    <span>1.8.5.22</span>
+    <span>IP:161.168.1.1 - Utente: admin [] - - - Richiedi Assistenza</span>
+</div>
+
+<!-- user navbar -->
+<nav *ngIf="user" class="navbar navbar-expand-lg navbar-light planner-nav z-depth-1">
+    <a class="navbar-brand" routerLink="/"><img src="assets/images/logo.png"> </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#usreNav" aria-controls="usreNav"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="usreNav">
+        <div class="mr-auto mt-2 mt-lg-0"></div>
+        <div class="my-2 my-lg-0">
+            <img src="assets/images/user.jpg" class="user-img rounded-circle">
+            <!-- User Drop {  -->
+            <div class="user-dropdown">
+                <mat-form-field appearance="fill">
+                    <mat-label>{{ user.username }}</mat-label>
+                    <mat-select>
+                        <mat-option (click)="logout()">{{'core.auth.logout'| translate}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <!-- } User Drop -->
+        </div>
+    </div>
+</nav>
+
+<!-- integra menu -->
+<nav class="menu-header navbar navbar-dark navbar-expand-lg">
+    <a class="navbar-brand d-lg-none" href="#"></a>
+    <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#hormenu"
+        aria-controls="#hormenu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div id="hormenu" class="admin navbar-collapse collapse" style="">
+        <ul>
+            <li><a href="/">Home</a></li>
+        </ul>
+
+        <ul style="display: none;">
+            <li class="registry sub"><a href="#"> Menu List</a>
+                <ul>
+                    <li><b class="s">Menu Item</b>
+                        <ul>
+                            <li><a href="#" class="link">Submenu Item</a></li>
+                            <li><a href="#" class="link">Submenu Item</a></li>
+                            <li><a href="#" class="link">Submenu Item</a></li>
+                            <li><a href="#" class="link">Submenu Item</a></li>
+                        </ul>
+                    </li>
+                    <li><b class="s">Menu Item</b>
+                        <ul>
+                            <li><a href="#" class="link">Submenu Item</a></li>
+                            <li><a href="#" class="link">Submenu Item</a></li>
+                            <li><a href="#" class="link">Submenu Item</a></li>
+                            <li><a href="#" class="link">Submenu Item</a></li>
+                        </ul>
+                    </li>
+                    <li><b class="s">Menu Item</b>
+                        <ul>
+                            <li><a href="#" class="link">Submenu Item</a></li>
+                            <li><a href="#" class="link">Submenu Item</a></li>
+                            <li><a href="#" class="link">Submenu Item</a></li>
+                            <li><a href="#" class="link">Submenu Item</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+
+        <ul style="display: none;">
+            <li class="registry sub"><a href="#"> Menu List</a>
+                <ul>
+                    <li><b class="s">Menu Item</b>
+                        <ul>
+                            <li><a href="#" class="link">Submenu Item</a></li>
+                            <li><a href="#" class="link">Submenu Item</a></li>
+                            <li><a href="#" class="link">Submenu Item</a></li>
+                            <li><a href="#" class="link">Submenu Item</a></li>
+                        </ul>
+                    </li>
+                    <li><b class="s">Menu Item</b>
+                        <ul>
+                            <li><a href="#" class="link">Submenu Item</a></li>
+                            <li><a href="#" class="link">Submenu Item</a></li>
+                            <li><a href="#" class="link">Submenu Item</a></li>
+                            <li><a href="#" class="link">Submenu Item</a></li>
+                        </ul>
+                    </li>
+                    <li><b class="s">Menu Item</b>
+                        <ul>
+                            <li><a href="#" class="link">Submenu Item</a></li>
+                            <li><a href="#" class="link">Submenu Item</a></li>
+                            <li><a href="#" class="link">Submenu Item</a></li>
+                            <li><a href="#" class="link">Submenu Item</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+        <ul style="display: none;">
+            <li class="registry sub"><a href="#"> Menu List</a>
+                <ul>
+                    <li><b class="s">Menu Item</b>
+                        <ul>
+                            <li><a href="#" class="link">Submenu Item</a></li>
+                            <li><a href="#" class="link">Submenu Item</a></li>
+                            <li><a href="#" class="link">Submenu Item</a></li>
+                            <li><a href="#" class="link">Submenu Item</a></li>
+                        </ul>
+                    </li>
+                    <li><b class="s">Menu Item</b>
+                        <ul>
+                            <li><a href="#" class="link">Submenu Item</a></li>
+                            <li><a href="#" class="link">Submenu Item</a></li>
+                            <li><a href="#" class="link">Submenu Item</a></li>
+                            <li><a href="#" class="link">Submenu Item</a></li>
+                        </ul>
+                    </li>
+                    <li><b class="s">Menu Item</b>
+                        <ul>
+                            <li><a href="#" class="link">Submenu Item</a></li>
+                            <li><a href="#" class="link">Submenu Item</a></li>
+                            <li><a href="#" class="link">Submenu Item</a></li>
+                            <li><a href="#" class="link">Submenu Item</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+        <ul>
+            <li class="registry sub"><a href="#"> Configurazione</a>
+                <ul>
+                    <li><b class="s">Soggetti</b>
+                        <ul>
+                            <li><a href="http://integraa-main.storexweb.com/gestione/registering.php?type=customers"
+                                    class="link">Clienti</a></li>
+                            <li><a href="http://integraa-main.storexweb.com/gestione/registering.php?type=agencies"
+                                    class="link">Agenzie</a></li>
+                            <li><a href="http://integraa-main.storexweb.com/gestione/registering.php?type=employees"
+                                    class="link">Staff</a></li>
+                            <li><a href="http://integraa-main.storexweb.com/gestione/profile.php" class="link">Il tuo
+                                    Profilo</a></li>
+                        </ul>
+                    </li>
+                    <li><b class="s">Destinazioni</b>
+                        <ul>
+                            <li><a href="http://integraa-main.storexweb.com/gestione/anagrafiche.php?type=province"
+                                    class="link">Province</a></li>
+                            <li><a href="http://integraa-main.storexweb.com/gestione/locating.php?type=senders"
+                                    class="link">Mittenti</a></li>
+                            <li><a href="http://integraa-main.storexweb.com/gestione/locating.php?type=recipients"
+                                    class="link">Destinatari/Utenze</a></li>
+                            <li><a href="http://integraa-main.storexweb.com/gestione/sorting.php?type=cap"
+                                    class="link">CAP</a></li>
+                        </ul>
+                    </li>
+                    <li><b class="s">Contabilita'</b>
+                        <ul>
+                            <li><a href="http://integraa-main.storexweb.com/gestione/pricing.php?type=banks"
+                                    class="link">Banche</a></li>
+                        </ul>
+                    </li>
+                    <li><b class="s">Prodotti</b>
+                        <ul>
+                            <li><a href="http://integraa-main.storexweb.com/gestione/stocking.php?type=processing"
+                                    class="link">Prodotti Postali</a></li>
+                        </ul>
+                    </li>
+                    <li><b class="s">Categorie</b>
+                        <ul>
+                            <li><a href="http://integraa-main.storexweb.com/gestione/stocking.php?type=category"
+                                    class="link">Categorie Prodotti Postali</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+
+        <ul>
+            <li class="services"><a href="#"> Servizi</a>
+                <ul>
+                    <li><b class="s">Lavorazioni</b>
+                        <ul>
+                            <li><a href="http://integraa-main.storexweb.com/gestione/processing.php?type=agencies"
+                                    class="link">Prodotti Postali</a></li>
+                            <li><a href="http://integraa-main.storexweb.com/gestione/processing.php?type=counters"
+                                    class="link">Lettura Contatori</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+        <ul>
+            <li class="management"><a href="#"> Gestione</a>
+                <ul>
+                    <li><b class="s">Monitoraggio</b>
+                        <ul>
+                            <li><a href="http://integraa-main.storexweb.com/gestione/sorting.php?type=products"
+                                    class="link">Postale/Letture</a></li>
+                        </ul>
+                    </li>
+                    <li><b class="s">Distinte</b>
+                        <ul>
+                            <li><a href="http://integraa-main.storexweb.com/gestione/processing.php?type=delivers"
+                                    class="link">Recapito/Revisore</a></li>
+                            <li><a href="http://integraa-main.storexweb.com/gestione/processing.php?type=sortings"
+                                    class="link">CSPI</a></li>
+                            <li><a href="http://integraa-main.storexweb.com/gestione/processing.php?type=returns"
+                                    class="link">Resi Clienti</a></li>
+                            <li><a href="http://integraa-main.storexweb.com/gestione/processing.php?type=carriers"
+                                    class="link">Vettori Esterni</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+        <ul>
+            <li class="registry sub"><a href="http://integraam.storexweb.com">Mail</a>
+                <ul>
+                    <li>
+                        <b class="s">Mail</b>
+                        <ul>
+                            <li><a href="/mails/inbox/-1" class="link">Entrata</a></li>
+                            <li><a href="/mails/in-progress/-1" class="link">In Lavorazione</a></li>
+                            <li><a href="/mails/worked/-1" class="link">Lavorata</a></li>
+                            <li><a href="/mails/sent/-1" class="link">Inviata</a></li>
+                            <li><a href="/mails/archived/-1" class="link">Archiviata</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="/mails-api/get-mail-filter" class="link">Desktop client</a></li>
+                    <li>
+                        <b class="s">Impostazioni</b>
+                        <ul>
+                            <li><a href="/setting/providers/" class="link">Providers</a></li>
+                            <li><a href="/setting/accounts/" class="link">Accounts</a></li>
+                            <li><a href="/setting/signatures/" class="link">Firme</a></li>
+                            <li><a href="/setting/filters/" class="link">Filtri</a></li>
+                            <li><a href="/setting/black-list/" class="link">Indirizzi bloccati</a></li>
+                            <li><a href="/setting/groups/" class="link">Gruppi</a></li>
+                            <li><a href="/setting/space-management/" class="link">Gestione dello spazio</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <b class="s">Invii massivi</b>
+                        <ul>
+                            <li><a href="/campaigns/" class="link">Invii massivi</a></li>
+                            <li><a href="/templates/type/content" class="link">Modelli</a></li>
+                            <li><a href="/templates/type/object" class="link">Modelli di oggetto</a></li>
+                            <li><a href="/contacts/" class="link">Contatti</a></li>
+                            <li><a href="/tipo/destinazione" class="link">Tipo destinazione</a></li>
+                            <li><a href="/tipo/soggetto" class="link">Tipo soggetto</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <b class=""><a href="/ticketing/iframe-test">Supporto</a></b>
+                    </li>
+                    <li>
+                        <b class="s">Ticketing</b>
+                        <ul>
+                            <li><a [routerLink]="['/tickets']" class="link">{{'core.menu.ticketing' | translate}}</a></li>
+                            <li *ngIf="canViewActivities"><a [routerLink]="['/activities']" class="link">{{'core.menu.activity' | translate}}</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+
+            </li>
+        </ul>
+
+    </div>
+</nav>

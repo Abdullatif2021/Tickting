@@ -1,0 +1,362 @@
+.mat-table {
+    width: 100%;
+    text-align: center;
+    text-transform: capitalize;
+    color: #212121;
+    border-radius: 12px 12px 0 0;
+}
+
+tr.mat-header-row {
+    height: 40px !important;
+}
+
+table th:first-child {
+    border-radius: 12px 0 0 0;
+}
+
+table th:last-child {
+    border-radius: 0 12px 0 0;
+}
+
+::ng-deep .mat-sort-header-container {
+    /* center header text */
+    display: flex;
+    justify-content: center;
+}
+
+::ng-deep .mat-sort-header-arrow {
+    color: #fff;
+    position: absolute !important;
+    right: 10px !important;
+    opacity: 1 !important;
+}
+
+td.mat-cell:last-of-type {
+    padding: 0 !important;
+}
+
+.mat-header-row {
+    background: #000;
+    color: #FEDA44;
+}
+
+.mat-header-row th {
+    text-align: center;
+    color: #FEDA44;
+    padding: 0;
+    font-size: 14px;
+    text-transform: capitalize;
+    border-left-color: #fff;
+    border-left-width: 1px;
+    border-left-style: solid;
+}
+
+tr.example-detail-row {
+    height: 0;
+}
+
+tr.example-element-row:not(.example-expanded-row):hover {
+    background: whitesmoke;
+}
+
+tr.example-element-row:not(.example-expanded-row):active {
+    background: #efefef;
+}
+
+.example-element-row td {
+    border-bottom-width: 0;
+}
+
+.example-element-detail {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    margin-top: -1px !important;
+}
+
+.example-element-diagram {
+    min-width: 80px;
+    border: 2px solid black;
+    padding: 8px;
+    font-weight: lighter;
+    margin: 8px 0;
+    height: 104px;
+}
+
+.example-element-symbol {
+    font-weight: bold;
+    font-size: 40px;
+    line-height: normal;
+}
+
+.example-element-description {
+    padding: 16px;
+}
+
+.example-element-description-attribution {
+    opacity: 0.5;
+}
+
+.mat-header-cell {
+    flex-direction: column;
+    justify-content: center;
+}
+
+.mat-cell {
+    text-align: center;
+    justify-content: center;
+    border-bottom-style: none;
+    padding: 0px !important;
+    vertical-align: middle;
+    font-size: 12px;
+    color: #212121;
+}
+
+.mat-cell.th-left {
+    padding-left: 5px;
+}
+
+th.mat-header-cell:last-of-type, td.mat-cell:last-of-type {
+    padding-right: 5px;
+}
+
+.main-subject {
+    float: left;
+}
+
+.subactivity-subject {
+    padding: 5px 0;
+    float: left;
+}
+
+.subactivity-subject span { 
+    float: left;
+}
+
+.subactivity-subject .checklist-count {
+    margin-top: 10px;
+    width: auto;
+    float: left;
+}
+
+.subactivity-subject .checklist-count {
+    margin-left: 5px;
+}
+
+.subactivity-subject .attachment-icon {
+    margin-top: 10px;
+}
+
+.subactivity-color {
+    position: relative;
+}
+
+.subactivity-status-cell {
+    border-bottom: 1px solid #ccc;
+}
+
+.subactivity-status
+{
+    margin-top: -2px;
+}
+
+.sub-activities-list .subactivity-color::after {
+    content: '';
+    background-color: #DFDFDF;
+    width: 2px;
+    height: 50px;
+    margin: 0px auto;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    right: 0;
+    left: 0;
+    display: block;
+    position: absolute;
+}
+
+.sub-activities-list tr:last-child .subactivity-color::after {
+    content: none;
+}
+
+.color-square {
+    display: block;
+    width: 10px;
+    height: 10px;
+    margin: 0px auto;
+    border-radius: 2px;
+}
+
+.subactivitiy {
+    width: 100%;
+    margin: 10px 0;
+}
+
+.subactivitiy>div {
+    text-align: center;
+    float: left;
+}
+
+.color-circle {
+    width: 20px;
+    height: 20px;
+    display: block;
+    margin: 0px auto;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+}
+
+.activity-subject>span {
+    display: inline-block;
+}
+
+/* activity toggle btn */
+
+.toggle-btn {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    margin: 0 0 0 15px;
+    background-size: 100%;
+    float: left;
+}
+
+.toggle-btn div {
+    width: 100%;
+    height: 1px;
+    background: #707781;
+    display: block;
+    margin: 3px 0;
+}
+
+.toggle-btn div:last-child {
+    width: 50%;
+}
+
+.checklist-count {
+    display: inline-block;
+    margin-left: 10px;
+    width: 100px;
+}
+
+.checklist-count .icon {
+    display: inline-block;
+}
+
+.checklist-count .total {
+    width: 22px;
+    height: 13px;
+    text-align: center;
+    display: inline-block;
+    letter-spacing: 0px;
+    margin-left: 5px;
+    color: #707781
+}
+
+.activity-count {
+    float: right;
+    color: #707781;
+    font-size: 12px;
+    margin-right: 10px;
+}
+
+.attachment-icon {
+    float: right;
+    margin-right: 10px;
+}
+
+/* activity toggle btn */
+
+.subactivitiy-count {
+    width: 21px;
+    height: 21px;
+    display: inline-block;
+    background: #DE2F2F 0% 0% no-repeat padding-box;
+    border-radius: 2px;
+    color: #fff;
+    text-align: center;
+    margin-left: 10px;
+    line-height: 21px;
+}
+
+.accept-ticket {
+    background: #009020;
+    border-radius: 14px;
+    text-transform: capitalize;
+    color: #fff;
+    float: right;
+    border: none;
+    margin-right: 15px;
+    font-size: 11px;
+    line-height: inherit;
+    min-width: 95px;
+    height: 23px;
+}
+
+.accept-ticket:hover {
+    opacity: 0.8;
+}
+
+.sort-btn {
+    width: 15px;
+    color: #fff;
+    cursor: pointer;
+    height: 20px;
+    float: right;
+    margin-right: 10px;
+}
+
+/* column width */
+
+.w-1 {
+    width: 3.1%;
+}
+
+.w-5 {
+    width: 5%;
+}
+
+.w-10 {
+    width: 10%;
+}
+
+.w-15 {
+    width: 10%;
+}
+
+.w-20 {
+    width: 20%;
+}
+
+.w-25 {
+    width: 25%;
+}
+
+.w-30 {
+    width: 30%;
+}
+
+.w-40 {
+    width: 40%;
+}
+
+.w-75 {
+    width: 75%;
+}
+
+.w-100 {
+    width: 100%;
+}
+
+/* content align */
+
+.th-center {
+    text-align: center;
+}
+
+.th-left {
+    text-align: left;
+}
+
+.th-right {
+    text-align: right;
+}

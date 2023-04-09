@@ -1,0 +1,93 @@
+<div class="d-flex justify-content-end" [ngClass]="{'dark-theme':theme=='dark'}">
+
+  <ng-container>
+
+    <!-- Results per page {  -->
+    <div class="d-inline-flex rpp-label"><label class="rpg-label">{{'shared.pagination.result_per_page'|
+        translate}}</label>
+    </div>
+    <div class="d-inline-flex rpp-select">
+      <ng-select
+        placeholder="{{rpp}}"
+        bindLabel="key"
+        bindValue="value"
+        [clearable]="false"
+        (change)="rppChanged($event)"
+        [items]="pageSizeOptions"
+        class="integraa-select results-per-page">
+      </ng-select>
+    </div>
+
+    <div *ngIf="results_count" class="results-count">
+      <span class="ml-1">
+        {{((current_page-1) * rpp) + 1}} -
+        <ng-container *ngIf="current_page == pages">
+          {{current_page * rpp - (rpp - results_count % rpp)}}
+        </ng-container>
+        <ng-container *ngIf="current_page < pages">
+          {{current_page * rpp}}
+        </ng-container>
+      </span>
+      <span class="ml-1">/</span>
+      <span class="ml-1">{{results_count}}</span>
+    </div>
+    <!-- } Results per page -->
+
+    <!-- Page select { -->
+    <div class="d-inline-flex">
+      <div class="pages-container">
+
+        <!-- Prev page -->
+        <ng-container *ngIf="current_page > 1">
+          <div class="page prev-page rounded-circle" (click)="prevPage()"><span>
+              <fa-icon [icon]="faCaretLeft"></fa-icon>
+            </span>
+          </div>
+        </ng-container>
+
+        <!-- First page -->
+        <ng-container *ngIf="current_page > 2">
+          <div class="page first-page rounded-circle" (click)="firstPage()"><span>
+              <fa-icon [icon]="faBackward"></fa-icon>
+            </span></div>
+        </ng-container>
+
+        <ng-container *ngIf="pages - current_page <= 3">
+          <div class="page rounded-circle" (click)="changePage(i)"
+            *ngFor="let i of range(current_page-1, current_page+2, pages, 0)"
+            [ngClass]="{'active-page':i==current_page}"><span>{{ i }}</span></div>
+        </ng-container>
+
+        <ng-container *ngIf="pages - current_page > 3">
+          <div class="page rounded-circle" (click)="changePage(i)"
+            *ngFor="let i of range(current_page-1, current_page+3, pages, 0)"
+            [ngClass]="{'active-page':(i)==current_page}"><span>{{ i }}</span></div>
+        </ng-container>
+
+        <!-- Next page -->
+        <ng-container *ngIf="current_page < pages">
+          <div class="page next-page rounded-circle" (click)="nextPage()"><span>
+              <fa-icon [icon]="faCaretRight"></fa-icon>
+            </span>
+          </div>
+        </ng-container>
+
+        <!-- Last page -->
+        <ng-container *ngIf="current_page < pages - 1">
+          <div class="page last-page rounded-circle" (click)="lastPage()"><span>
+              <fa-icon [icon]="faForward"></fa-icon>
+            </span></div>
+        </ng-container>
+
+      </div>
+    </div>
+    <!-- } Page select -->
+
+  </ng-container>
+
+</div>
+<ng-template #skeleton>
+  <div class="d-flex justify-content-end">
+    <div class="rect-loading-skeleton mt-2 pagination-loading"></div>
+  </div>
+</ng-template>

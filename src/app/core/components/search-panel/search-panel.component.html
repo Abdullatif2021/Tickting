@@ -1,0 +1,10 @@
+<div class="search-panel">
+  <div class="search-input-container">
+    <fa-icon [icon]="faSearch"></fa-icon>
+    <input [(ngModel)]="_search" type="text" #input class="form-control search-input" value="" placeholder="Search">
+  </div>
+  <div>
+    <button class="integraa-btn" (click)="clear()" *ngIf="_search">{{ 'core.search_panal.reset' | translate }}</button>
+    <button class="integraa-btn" (click)="search(_search)">{{ 'core.search_panal.search' | translate }}</button>
+  </div>
+</div>

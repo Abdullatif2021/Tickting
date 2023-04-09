@@ -1,0 +1,45 @@
+<div class="sidebar-banner">
+
+    <!-- Groups / Activities -->
+    <app-folders
+    [title]="'core.level.folders' | translate"
+    [dataSource]="folders"
+    (itemClicked)="folderChange($event)"
+    >
+  </app-folders>
+
+    <!-- status list -->
+    <app-level-list
+      *ngIf="status && status.length"
+      [title]="'core.level.status' | translate"
+      [items]="status"
+      (filterChanged)="stateChanged($event)"
+      ></app-level-list>
+
+    <!-- priority list -->
+    <app-level-list
+      *ngIf="priority && priority.length"
+      [title]="'core.level.priority' | translate"
+      [items]="priority"
+      (filterChanged)="priorityChanged($event)"
+    ></app-level-list>
+
+    <!-- assignate list -->
+    <app-level-list
+      *ngIf="assign && assign.length"
+      [title]="'core.level.assign' | translate"
+      [items]="assign"
+      (filterChanged)="assignedUserChanged($event)"
+      ></app-level-list>
+
+    <!-- Testers -->
+    <app-level-list
+      *ngIf="testers && testers.length"
+      [title]="'core.level.tester' | translate"
+      [items]="testers"    >
+
+    <!--(filterChanged)="testerUserChanged($event)"-->
+
+    </app-level-list>
+
+</div>

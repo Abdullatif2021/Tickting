@@ -1,0 +1,33 @@
+<div class="wrapper">
+    <div class="search">
+        <span>
+            <fa-icon class="icon" [icon]="faSearch"></fa-icon>
+        </span>
+        <input matInput type="text" [(ngModel)]="searchText" placeholder="Search">
+        <span>
+            <fa-icon class="icon" [icon]="faTimes"></fa-icon>
+        </span>
+    </div>
+    <div class="body" *ngIf="(users | dataFilter: searchText).length > 0; else noResults">
+        <div class="user-list">
+            <div class="item" *ngFor="let user of users  | dataFilter: searchText; let i = index"
+                [ngClass]="{selected: user.selected}"> 
+                <div class="short-name">{{user.name | substrname}}</div>
+                <div class="full-name" (click)="whenUserClicked(user)">{{user.name}}</div>
+                <div class="action" *ngIf="user.selected">
+                    <fa-icon [icon]="faTimes" (click)="whenUserDeselected(user)"></fa-icon>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> 
+
+<ng-template #noResults>    
+    <div class="user-list">
+        <div class="item">
+            <div class="full-name">
+                "{{searchText}}" {{ 'shared.notFound' | translate}}
+            </div> 
+        </div>
+    </div>
+</ng-template>

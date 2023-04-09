@@ -1,0 +1,124 @@
+<mat-progress-bar *ngIf="loading" mode="indeterminate" [color]="'primary'"></mat-progress-bar>
+<div id="scroll-helper"></div>
+<app-user-nav></app-user-nav>
+<div class="flex-grid">
+  <div class="flex-content">
+    <div class="create-ticket-wrap">
+      <!-- Header -->
+      <div class="header88">
+        <p>{{ 'module.create_tick.tit' | translate }}
+        </p>
+      </div>
+      <!-- Body -->
+      <div class="content">
+        <p>{{ 'module.create_tick.tit2' | translate }}</p>
+        <form [formGroup]="ticketFormGroup">
+          <div class="width-wrapper">
+            <div class="group">
+              <h2 class="font">{{ 'module.create_tick.Infor' | translate }}</h2>
+              <mat-form-field class="example-full-width">
+                <mat-label>{{ 'module.create_tick.name' | translate }}</mat-label>
+                <input matInput formControlName="name" required>
+                <!-- error -->
+                <mat-error *ngIf="errorHandling('name', 'required')">
+                  {{ 'module.create_tick.error_name' | translate }}
+                </mat-error>
+              </mat-form-field>
+              <mat-form-field class="example-full-width">
+                <mat-label>{{ 'module.create_tick.sur' | translate }}</mat-label>
+                <input matInput formControlName="surname" #surname required>
+                <!-- error -->
+                <mat-error *ngIf="surname">
+                  {{ 'module.create_tick.error_sur' | translate }}
+                </mat-error>
+              </mat-form-field>
+              <mat-form-field class="example-full-width">
+                <mat-label>{{ 'module.create_tick.email' | translate }}</mat-label>
+                <input type="email" [email]="true" matInput
+                  placeholder="Ex. pat@example.com" formControlName="email" required>
+                <!-- error -->
+                <mat-error *ngIf="errorHandling('email', 'required')">
+                  {{ 'module.create_tick.error_ema' | translate }}
+                </mat-error>
+                <mat-error *ngIf="errorHandling('email', 'email')">
+                  {{ 'module.create_tick.validEmail' | translate }}
+                </mat-error>
+              </mat-form-field>
+              <mat-form-field class="example-full-width">
+                <mat-label>{{ 'module.create_tick.tel' | translate }}</mat-label>
+                <span matPrefix>+39 &nbsp;</span>
+                <input type="tel" matInput placeholder="555-555-1234" formControlName="phone" required>
+                <!-- error -->
+                <mat-error *ngIf="errorHandling('phone', 'required')">
+                  {{ 'module.create_tick.error_tel' | translate }}
+                </mat-error>
+                <mat-error *ngIf="errorHandling('phone', 'pattern')">
+                  {{ 'module.create_tick.validPhonenumber' | translate }}
+                </mat-error>
+                <mat-icon matSuffix>mode_edit</mat-icon>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="group">
+            <h2 class="font">{{ 'module.create_tick.details' | translate }}</h2>
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>{{ 'module.create_tick.rep' | translate }}</mat-label>
+              <mat-select formControlName="group_id" style="background: none;" required>
+                <mat-option *ngFor="let group of groupA" [value]="group.id">
+                  {{group.name}}
+                </mat-option>
+              </mat-select>
+              <!-- error -->
+              <mat-error *ngIf="errorHandling('group_id', 'required')">
+                {{ 'module.create_tick.error_rep' | translate }}
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+              <mat-label>{{ 'module.create_tick.area' | translate }}</mat-label>
+              <input formControlName="problem_area" matInput #problemArea placeholder="" required>
+              <mat-error *ngIf="problemArea">
+                {{ 'module.create_tick.error_area' | translate }}
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+              <mat-label>{{ 'module.create_tick.link' | translate }}</mat-label>
+              <input formControlName="link" matInput placeholder="">
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+              <mat-label>{{ 'module.create_tick.object' | translate }}</mat-label>
+              <input formControlName="object" form matInput placeholder="" required>
+              <!-- error -->
+              <mat-error *ngIf="errorHandling('object', 'required')">
+                {{ 'module.create_tick.error_object' | translate }}
+              </mat-error>
+            </mat-form-field>
+
+          </div>
+          <p class="p" style="font-weight: 500;" required>{{ 'module.create_tick.massege' | translate }}</p>
+          <div class="NgxEditor__Wrapper">
+            <ngx-editor-menu [editor]="editor" [toolbar]="toolbar"> </ngx-editor-menu>
+            <ngx-editor [editor]="editor" [formControlName]="'message'"> </ngx-editor>
+          </div>
+          <div class="group">
+            <div class="uploader-wrapper">
+              <ngx-awesome-uploader class="uploader-input" [fileExtensions]="['pdf', 'jpg', 'jpeg', 'png', 'mp4']"
+                [adapter]="adapter" [uploadType]="'multi'" [enableCropper]="false" (fileAdded)="uploadSuccess($event)"
+                (fileRemoved)="removeFiles($event)">
+              </ngx-awesome-uploader>
+            </div>
+          </div>
+          <div class="group">
+            <div class="button">
+              <button class="button1" routerLink="/">{{ 'module.create_tick.close' | translate }}</button>
+              <button [disabled]="disable" (click)="CreateTicket()" class="button2">{{ 'module.create_tick.crea' |
+                translate }}</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

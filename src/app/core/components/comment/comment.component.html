@@ -1,0 +1,41 @@
+<div id="comments-container">
+  <div *ngIf="haveLogs" class="load-more" (click)="loadMoreComment()">
+    <fa-icon [icon]="faRedoAlt"></fa-icon>
+    <span>{{'core.act_det.olderData' | translate}}</span>
+  </div>
+  <ul id="comments">
+    <li *ngFor="let item of logs" class="comment"> 
+      <div *ngIf="item.log_type === 'CREATE_COMMENT'">
+        <div class="avatar">
+          <span>{{item.from_user.name | substrname}}</span>
+        </div>
+        <div class="comment__content">
+          <div class="comment-title">
+            <span class="comment__pub-user">{{item.from_user.name}}</span>
+            <span class="comment__pub-date">{{item.createdAt}}</span>
+          </div>
+          <p class="text">
+            {{item.log_value}}
+          </p>
+        </div>
+      </div>
+      <div *ngIf="item.log_type !== 'CREATE_COMMENT'">
+        <div class="log-item">
+          <div class="bold">{{item.from_user.name}}</div>
+          <div class="log-desc"> {{item.desc}}</div>
+          <div class="log-value" *ngIf="item.log_value">{{item.log_value}}</div>
+          <div class="bold" *ngIf="item.to_user">{{item.to_user.name}}</div>
+          <span id="demo" class="comment__pub-date1">{{item.createdAt}}</span>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<section *ngIf="canAddComment" id="comment--new" class="comment">
+  <div id="comment__form">
+    <textarea id="comment__textarea" #commentText placeholder="Scrivi un commento" maxlength="132"></textarea>
+    <button (click)="createComment(commentText)" type="submit" id="comment--send">{{ 'core.search_panal.submit' |
+      translate}}</button>
+  </div>
+</section>

@@ -1,0 +1,342 @@
+<div class="tickets-list">
+  <!-- tickets table -->
+
+  <table cellspacing="0" cellpadding="0" mat-table matSort [dataSource]="dataSource" multiTemplateDataRows
+    class="mat-elevation-z0 border tickets-table">
+
+    <!-- Color Column -->
+    <ng-container matColumnDef="color">
+      <th class="w-1" mat-header-cell *matHeaderCellDef>
+        <span class="color-circle"></span>
+      </th>
+      <td mat-cell *matCellDef="let element">
+        <div *ngIf="element.state">
+          <div class="color-square" [ngStyle]="{'background-color':element.state.color}"></div>
+        </div>
+      </td>
+    </ng-container>
+
+    <!-- Subject Column -->
+    <ng-template [ngIf]="page == 'tickets'">
+      <ng-container matColumnDef="subject">
+
+        <th class="w-30" mat-header-cell *matHeaderCellDef>
+          <span>{{'core.table.subject' | translate}}</span>
+          <div class="sort-btn" (click)="sortTable('subject')">
+            <fa-icon *ngIf="currentSort.subject == 'ASC'" [icon]="faSortAmountUp"></fa-icon>
+            <fa-icon *ngIf="currentSort.subject == 'DESC'" [icon]="faSortAmountDown"></fa-icon>
+          </div>
+        </th>
+
+        <td class="th-left activity-subject" mat-cell *matCellDef="let element">
+
+          <div class="main-subject">{{ element.subject | slice:0:60 }}</div>
+          <div (click)="openModal(element, 'TICKET')" class="toggle-btn"
+            [ngStyle]="{'background-image':'url(assets/images/toggle.png)'}"></div>
+
+          <!-- accept ticket -->
+          <button
+            *ngIf="page=='tickets' && element.state && element.state.label == 'Aperto' && canAcceptTicket"
+            (click)="openModal2(element, 'TICKET')" class="accept-ticket" mat-flat-button>{{
+            'core.table.acceptTicket'
+            | translate }}</button>
+
+          <!-- attachemnt icon -->
+          <div *ngIf="element.attachments" class="attachment-icon">
+            <fa-icon [icon]="faPaperclip"></fa-icon>
+          </div>
+
+          <!-- if tickets -->
+          <ng-template [ngIf]="page=='tickets' && element.activities">
+            <div *ngIf="element.activities.length" class="activity-count">
+              {{element.activities.length}} {{ 'core.table.activity' | translate }}</div>
+          </ng-template>
+
+          <!-- if activities -->
+          <ng-template [ngIf]="page=='activities'">
+            <div class="subactivitiy-count">4</div>
+            <div class="checklist-count">
+              <div class="icon">
+                <fa-icon [icon]="faCheckSquare"></fa-icon>
+              </div>
+              <div class="total">8/10</div>
+            </div>
+          </ng-template>
+
+        </td>
+      </ng-container>
+    </ng-template>
+
+    <!-- Subject Column -->
+    <ng-template [ngIf]="page == 'activities'">
+      <ng-container matColumnDef="subject">
+
+        <th class="w-30" mat-header-cell *matHeaderCellDef>
+          <span>{{'core.table.subject' | translate}}</span>
+          <div class="sort-btn" (click)="sortTable('subject')">
+            <fa-icon *ngIf="currentSort.subject == 'ASC'" [icon]="faSortAmountUp"></fa-icon>
+            <fa-icon *ngIf="currentSort.subject == 'DESC'" [icon]="faSortAmountDown"></fa-icon>
+          </div>
+        </th>
+
+        <td class="th-left activity-subject" mat-cell *matCellDef="let element">
+
+          <div class="main-subject">{{ element.name | slice:0:60 }}</div>
+
+          <!-- open activity modal -->
+          <div (click)="openModal(element, 'ACTIVITY')" class="toggle-btn"
+            [ngStyle]="{'background-image':'url(assets/images/toggle.png)'}"></div>
+
+          <!-- accept ticket -->
+          <button (click)="openModal(element, 'ACTIVITY')"
+            *ngIf="page=='tickets' && element.state && element.state.label == 'Aperto'"
+            (click)="openModal(element, 'ACTIVITY')" class="accept-ticket" mat-flat-button>{{
+            'core.table.acceptTicket'
+            | translate }}</button>
+
+          <!-- attachemnt icon -->
+          <div *ngIf="element.attachments" class="attachment-icon">
+            <fa-icon [icon]="faPaperclip"></fa-icon>
+          </div>
+
+          <!-- if tickets -->
+          <ng-template [ngIf]="page=='tickets' && element.activities">
+            <div *ngIf="element.activities.length" class="activity-count">
+              {{element.activities.length}} {{ 'core.table.activity' | translate }}</div>
+          </ng-template>
+
+          <!-- if activities -->
+          <ng-template [ngIf]="page=='activities'">
+            <div *ngIf="element.subActivities" class="subactivitiy-count">{{element.subActivities.length}}</div>
+            <div *ngIf="element.checkList && element.checkList.length" class="checklist-count">
+              <div class="icon">
+                <fa-icon [icon]="faCheckSquare"></fa-icon>
+              </div>
+              <div class="total">{{element.completed_sub_activities}}/{{element.checked_checklist_items}}</div>
+            </div>
+          </ng-template>
+
+        </td>
+      </ng-container>
+    </ng-template>
+
+    <!-- Status Column -->
+    <ng-container matColumnDef="status">
+      <th class="w-10" mat-header-cell *matHeaderCellDef>
+        <span>{{'core.table.status' | translate}}</span>
+        <div class="sort-btn" (click)="sortTable('state_id')">
+          <fa-icon *ngIf="currentSort.state_id == 'ASC'" [icon]="faSortAmountUp"></fa-icon>
+          <fa-icon *ngIf="currentSort.state_id == 'DESC'" [icon]="faSortAmountDown"></fa-icon>
+        </div>
+      </th>
+      <td mat-cell *matCellDef="let element">
+        <div *ngIf="element.state" [ngStyle]="{'background-color':element.state.color}">
+          <app-status [text]="element.state.label" [color]="'transparent'"></app-status>
+        </div>
+      </td>
+    </ng-container>
+
+    <!-- tickets specail columns -->
+    <ng-template [ngIf]="page == 'tickets'">
+
+      <!-- Destinazione Column -->
+      <ng-container matColumnDef="destination">
+        <th class="w-10" mat-header-cell *matHeaderCellDef>
+          <span>{{'core.table.destination' | translate}}</span>
+          <div class="sort-btn" (click)="sortTable('group_id')">
+            <fa-icon *ngIf="currentSort.group_id == 'ASC'" [icon]="faSortAmountUp"></fa-icon>
+            <fa-icon *ngIf="currentSort.group_id == 'DESC'" [icon]="faSortAmountDown"></fa-icon>
+          </div>
+        </th>
+        <td mat-cell *matCellDef="let element">{{ element.group.name }}</td>
+      </ng-container>
+
+      <!-- Problematica Column -->
+      <ng-container matColumnDef="problemarea">
+        <th class="w-10" mat-header-cell *matHeaderCellDef>
+          <span>{{'core.table.problemarea' | translate}}</span>
+          <div class="sort-btn" (click)="sortTable('problem_area_text')">
+            <fa-icon *ngIf="currentSort.problem_area_text == 'ASC'" [icon]="faSortAmountUp"></fa-icon>
+            <fa-icon *ngIf="currentSort.problem_area_text == 'DESC'" [icon]="faSortAmountDown"></fa-icon>
+          </div>
+        </th>
+        <td mat-cell *matCellDef="let element">{{ element.problem_area }}</td>
+      </ng-container>
+
+    </ng-template>
+
+    <!-- activities special columns -->
+    <ng-template [ngIf]="page == 'activities'">
+
+      <!-- Assign Column -->
+      <ng-container matColumnDef="assign">
+        <th class="w-10" mat-header-cell *matHeaderCellDef>
+          <span>{{'core.table.assign' | translate}}</span>
+          <div class="sort-btn" (click)="sortTable('assign')">
+            <fa-icon *ngIf="currentSort.assign == 'ASC'" [icon]="faSortAmountUp"></fa-icon>
+            <fa-icon *ngIf="currentSort.assign == 'DESC'" [icon]="faSortAmountDown"></fa-icon>
+          </div>
+        </th>
+        <td class="th-left" mat-cell *matCellDef="let element">
+          <app-user-badge [canAssignUser]="false" [items]="element.assigned" [showTable]="true"></app-user-badge>
+        </td>
+      </ng-container>
+
+      <!-- Tester Column -->
+      <ng-container matColumnDef="tester">
+        <th class="w-10" mat-header-cell *matHeaderCellDef>
+          <span>{{'core.table.tester' | translate}}</span>
+          <div class="sort-btn" (click)="sortTable('tester')">
+            <fa-icon *ngIf="currentSort.tester == 'ASC'" [icon]="faSortAmountUp"></fa-icon>
+            <fa-icon *ngIf="currentSort.tester == 'DESC'" [icon]="faSortAmountDown"></fa-icon>
+          </div>
+        </th>
+        <td class="th-left" mat-cell *matCellDef="let element">
+          <app-user-badge [items]="element.tester" [showTable]="true"></app-user-badge>
+        </td>
+      </ng-container>
+
+      <!-- Priority Column -->
+      <ng-container matColumnDef="priority">
+        <th class="w-10" mat-header-cell *matHeaderCellDef>
+          <span>{{'core.table.priority' | translate}}</span>
+          <div class="sort-btn" (click)="sortTable('priority_id')">
+            <fa-icon *ngIf="currentSort.priority_id == 'ASC'" [icon]="faSortAmountUp"></fa-icon>
+            <fa-icon *ngIf="currentSort.priority_id == 'DESC'" [icon]="faSortAmountDown"></fa-icon>
+          </div>
+        </th>
+        <td mat-cell *matCellDef="let element">
+          <div [ngStyle]="{color: element.priority ? element.priority.color : ''}">{{element.priority ? element.priority.label : ''}}</div>
+        </td>
+      </ng-container>
+
+      <!-- Time Column -->
+      <ng-container matColumnDef="time">
+        <th class="w-10" mat-header-cell *matHeaderCellDef>
+          <span>{{'core.table.time' | translate}}</span>
+          <div class="sort-btn" (click)="sortTable('time')">
+            <fa-icon *ngIf="currentSort.time == 'ASC'" [icon]="faSortAmountUp"></fa-icon>
+            <fa-icon *ngIf="currentSort.time == 'DESC'" [icon]="faSortAmountDown"></fa-icon>
+          </div>
+        </th>
+        <td mat-cell *matCellDef="let element">{{ element.tracked_time }}</td>
+      </ng-container>
+    </ng-template>
+
+    <!-- Progress Column -->
+    <ng-container matColumnDef="progress">
+      <th class="w-15" mat-header-cell *matHeaderCellDef>
+        <span>{{'core.table.progress' | translate}}</span>
+        <div class="sort-btn" (click)="sortTable('progress')">
+          <fa-icon *ngIf="currentSort.progress == 'ASC'" [icon]="faSortAmountUp"></fa-icon>
+          <fa-icon *ngIf="currentSort.progress == 'DESC'" [icon]="faSortAmountDown"></fa-icon>
+        </div>
+      </th>
+      <td mat-cell *matCellDef="let element"> 
+        <app-meter [value]="element.progress"></app-meter>
+      </td>
+    </ng-container>
+
+    <!-- Expanded Content Column - The detail row is made up of this one column that spans across all columns -->
+    <ng-template [ngIf]="page == 'activities'">
+      <ng-container matColumnDef="expandedDetail">
+
+        <td mat-cell *matCellDef="let element" [attr.colspan]="displayedColumns.length">
+          <div class="example-element-detail" [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
+
+
+            <table class="sub-activities-list">
+              <thead>
+                <th style="width: 3.4%;"></th>
+                <th style="width: 31.95%;"></th>
+                <th style="width: 10.8%;"></th>
+                <th style="width: 10.7%;"></th>
+                <th style="width: 10.7%;"></th>
+                <th style="width: 10.7%;"></th>
+                <th style="width: 10.7%;"></th>
+                <th style="width: 10.7%;"></th>
+              </thead>
+              <tbody>
+                <tr *ngFor="let activity of element.subActivities">
+                  <td>
+                    <div *ngIf="activity.state" class="subactivity-color">
+                      <div class="color-square" [ngStyle]="{'background-color':activity.state.color}"></div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="subactivity-subject th-left">
+                      <span>{{ activity.name }}</span>
+                      <div *ngIf="activity.checkList && activity.checkList.length" class="checklist-count">
+                        <div class="icon">
+                          <fa-icon [icon]="faCheckSquare"></fa-icon>
+                        </div>
+                        <div class="total" >{{activity.checked_checklist_items + '/' + activity.total_checkList_items}}</div>
+                      </div>
+                      <div *ngIf="activity.attachments && activity.length" class="attachment-icon">
+                        <fa-icon [icon]="faPaperclip"></fa-icon>
+                      </div>
+                    </div>
+                  </td>
+                  <td *ngIf="activity.state" class="subactivity-status-cell" [ngStyle]="{'background-color':activity.state.color}">
+                    <div  class="subactivity-status">
+                      <app-status [text]="activity.state.label" [color]="'transparent'"></app-status>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="subactivity-assign th-left">
+                      <app-user-badge [canAssignUser]="false" [items]="activity.assign"></app-user-badge>
+                    </div>
+                  </td>
+                  <td>
+                    <div *ngIf="activity.assignedUsers && activity.assignedUsers.length" class="subactivity-tester th-left">
+                      <app-user-badge [canAssignUser]="false" [items]="activity.assignedUsers"></app-user-badge>
+                    </div>
+                  </td>
+                  <td>
+                    <div *ngIf="activity.priority" class="subactivity-priority">
+                      <div [ngStyle]="{color: activity.priority.color}">{{ activity.priority.label }}</div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="subactivity-time">
+                      {{ activity.tracked_time }}
+                    </div>
+                  </td>
+                  <td>
+                    <div class="subactivity-progress">
+                      <app-meter [value]="activity.progress"></app-meter>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </td>
+
+      </ng-container>
+    </ng-template>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let element; columns: displayedColumns" class="example-element-row"
+      [class.example-expanded-row]="expandedElement === element"
+      (click)="expandedElement = expandedElement === element ? null : element"></tr>
+    <ng-template [ngIf]="page == 'activities'">
+      <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
+    </ng-template>
+
+  </table>
+</div>
+
+<ng-template [ngIf]="page == 'tickets'">
+<!--  <jw-modal id="custom-modal-1" [width]="'96%'">-->
+<!--    <app-ticket-details></app-ticket-details>-->
+<!--  </jw-modal>-->
+ <!-- <jw-modal id="accept-ticket-modal" [width]="'40%'">
+   <app-accept-ticket></app-accept-ticket>
+ </jw-modal> -->
+</ng-template>
+<ng-template>
+  <jw-modal id="activity-details-modal" [width]="'98%'">
+   <app-activity-details></app-activity-details>
+  </jw-modal>
+</ng-template>

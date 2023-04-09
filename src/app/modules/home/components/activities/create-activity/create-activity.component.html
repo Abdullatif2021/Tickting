@@ -1,0 +1,97 @@
+<mat-progress-bar *ngIf="loading"  mode="indeterminate" [color]="'primary'"></mat-progress-bar>
+<div id="scroll-helper"></div>
+<app-user-nav></app-user-nav>
+<div class="flex-grid">
+  <div class="flex-content">
+    <div class="create-ticket-wrap">
+      <!-- Header -->
+      <div class="header88">
+        <p>{{ 'module.create_act.tit' | translate }}
+        </p>
+      </div>
+      <!-- Body -->
+      <div class="content">
+        <p>{{ 'module.create_act.tit2' | translate }}</p>
+        <form [formGroup]="myForm" (ngSubmit)="Createactivity()" novalidate>
+          <div class="width-wrapper">
+              <mat-form-field class="example-full-width">
+                <mat-label>{{ 'module.create_act.name' | translate }}</mat-label>
+                <input matInput formControlName="name" [(ngModel)]="data.name" required>
+                <!-- error -->
+                <mat-error *ngIf="errorHandling('name', 'required')">
+                  {{ 'module.create_act.error_name' | translate }}
+                </mat-error>
+              </mat-form-field>
+              <mat-form-field class="example-full-width">
+                <mat-label>{{ 'module.create_act.des' | translate }}</mat-label>
+                <input type="description" matInput [(ngModel)]="data.description" formControlName="description">
+
+                 <mat-error *ngIf="errorHandling('description', 'required')">
+                  {{ 'module.create_act.error_des' | translate }}
+                </mat-error>
+              </mat-form-field>
+              <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>{{ 'module.create_act.continer' | translate }}</mat-label>
+                <mat-select formControlName="groupss" required>
+                  <mat-option *ngFor="let group of groupA" [value]="group.id"
+                    (onSelectionChange)="groupSelected(group)">
+                    {{group.name}}
+                  </mat-option>
+                </mat-select>
+                  <!-- error -->
+                  <mat-error *ngIf="errorHandling('groupss', 'required')">
+                    {{ 'module.create_act.error_cont' | translate }}
+                  </mat-error>
+              </mat-form-field>
+              <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>{{ 'module.create_act.prio' | translate }}</mat-label>
+                <mat-select >
+                  <mat-option *ngFor="let prio of prior" [value]="prio.id"
+                    (onSelectionChange)="prioSelected(prio)">
+                    {{prio.label}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+              <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>{{ 'module.create_act.state' | translate }}</mat-label>
+                <mat-select >
+                  <mat-option *ngFor="let state of states" [value]="state.id"
+                    (onSelectionChange)="stateSelected(state)">
+                    {{state.label}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+              <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>{{ 'module.create_act.range' | translate }}</mat-label>
+                <mat-date-range-input [formGroup]="range" [rangePicker]="picker">
+                  <input matStartDate formControlName="start" placeholder="Start date" (dateChange)="changeEvent($event)">
+                  <input matEndDate formControlName="end" placeholder="End date"  (dateChange)="changeEvent2($event)">
+                </mat-date-range-input>
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-date-range-picker #picker></mat-date-range-picker>
+
+                <mat-error *ngIf="range.controls.start.hasError('matStartDateInvalid')">{{ 'module.create_act.error_range1' | translate }}</mat-error>
+                <mat-error *ngIf="range.controls.end.hasError('matEndDateInvalid')">{{ 'module.create_act.error_range2' | translate }}</mat-error>
+              </mat-form-field>
+
+          </div>
+          <div class="group">
+            <div class="uploader-wrapper">
+              <ngx-awesome-uploader [fileExtensions]="['pdf', 'jpg', 'jpeg', 'png', 'mp4']" class="uploader-input" [adapter]="adapter" [uploadType]="'multi'" [enableCropper]="false"
+                (fileAdded)="uploadSuccess($event)"
+                (fileRemoved)="removeFiles($event)"
+              >
+              </ngx-awesome-uploader>
+            </div>
+          </div>
+          <div class="group">
+            <div class="button">
+              <button class="button1" routerLink="/activities">{{ 'module.create_act.close' | translate }}</button>
+              <button (click)="Createactivity()" [disabled]= "disable" class="button2">{{ 'module.create_act.crea' | translate }}</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

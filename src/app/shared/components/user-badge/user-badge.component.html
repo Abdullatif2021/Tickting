@@ -1,0 +1,24 @@
+<div class="wrap">
+    <div class="user-badge-list limited" *ngIf="items" >
+        <ul>
+            <ng-container *ngFor="let item of items; let i=index">
+                <li *ngIf="i < 3">{{this.getName(item) | substrname}}</li>
+                <li *ngIf="i == 3" class="count" (click)="showlist()"> +{{ items.length - i }}</li>                
+            </ng-container>
+        </ul>
+    </div>
+    <div *ngIf="items && items.length > 3 && showTable && show">
+        <div class="user-badge-all" [ngClass]="{'active':show}">
+            <ul>
+                <!-- class="selected" -->
+                <li *ngFor="let item of items;">
+                    <div class="short">{{this.getName(item) | substrname}}</div>
+                    <div class="full-name">{{this.getName(item)}}</div>
+                    <div class="action" *ngIf="canAssignUser">
+                        <fa-icon [icon]="faTimes"></fa-icon>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

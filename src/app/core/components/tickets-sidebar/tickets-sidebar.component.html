@@ -1,0 +1,43 @@
+<div class="sidebar-banner">
+
+  <!-- Problem Area -->
+  <app-level-list
+    *ngIf="problem_areas && problem_areas.length"
+    [filter]="'problemarea'"
+    [title]="'core.table.problemarea' | translate"
+    [items]="problem_areas"
+    (filterChanged)="problemAreaFilterChange($event)"
+  >
+  </app-level-list>
+
+  <!-- Destination -->
+  <app-level-list
+    *ngIf="groups && groups.length"
+    [filter]="'group'"
+    [title]="'core.table.destination' | translate"
+    [items]="groups"
+    (filterChanged)="groupsFilterChanged($event)"
+  >
+  </app-level-list>
+
+  <!-- status list -->
+  <app-level-list
+    *ngIf="status && status.length"
+    [filter]="'status'"
+    [title]="'core.level.status' | translate"
+    [items]="status"
+    (filterChanged)="statusFilterChanged($event)"
+    >
+  </app-level-list>
+
+  <!-- priority list -->
+  <app-level-list
+    *ngIf="priority && priority.length"
+    [filter]="'priority'"
+    [title]="'core.level.priority' | translate"
+    [items]="priority"
+    (filterChanged)="priorityFilterChanged($event)"
+    >
+  </app-level-list>
+
+</div>

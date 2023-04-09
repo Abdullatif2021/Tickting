@@ -1,0 +1,272 @@
+.top-nav {
+    background-color: #222222;
+    color: #FEDA44;
+    padding: 7px 6px 7px 20px;
+}
+
+.planner-nav {
+    background-color: white !important;
+    padding: 2px 35px;
+}
+
+.navbar-brand img {
+    height: 50px;
+}
+
+.user-img {
+    width: 50px;
+    height: 50px;
+    float: right;
+    margin-top: 15px;
+}
+
+.user-dropdown {
+    cursor: pointer;
+}
+
+.user-dropdown::after {
+    display: none;
+}
+
+.user-name {
+    padding: 0px 15px;
+    color: #555;
+    font-size: 15px;
+}
+
+.drop-arrow {
+    border: solid #888;
+    border-width: 0 2px 2px 0;
+    display: inline-block;
+    padding: 3px;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    margin-right: 15px;
+}
+
+.settings-area {
+    padding: 10px 20px 0px 0px;
+    font-size: 18px;
+}
+
+.settings-area span {
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+.settings-icon {
+    color: #444;
+}
+
+.bell-icon {
+    color: #555;
+}
+
+.dropbtn {
+    background-color: none;
+    color: rgb(15, 9, 9);
+    font-size: 15px;
+    border: none;
+    cursor: pointer;
+    height: 12px;
+    padding: 0px;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 90px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: none;
+}
+
+.menu-header.navbar {
+    background: #000;
+    border-bottom: 2px solid #999;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.menu-header.navbar .navbar-toggler {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+@media screen and (max-width: 992px) {
+    body.is-desktop header.sticky-top {
+        position: static;
+        top: auto;
+    }
+    div#hormenu ul {
+        list-style: none;
+    }
+    div#hormenu>ul>li>a {
+        font-size: 1.2em;
+    }
+    div#hormenu ul>li>ul {
+        padding-left: 20px;
+    }
+}
+
+@media screen and (min-width: 991px) {
+    div#hormenu li, div#hormenu a, div#hormenu b {
+        cursor: pointer;
+    }
+    div#hormenu {
+        width: 100%;
+        float: left;
+        margin: 0px;
+        padding: 0px;
+        font-size: 10px;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+    div#hormenu>ul>li>ul {
+        position: absolute;
+    }
+    div#hormenu ul {
+        margin: 0px;
+        padding: 0px;
+        list-style-type: none;
+    }
+    div#hormenu li {
+        white-space: nowrap;
+        min-width: 130px;
+        /*width:130px;*/
+        float: left;
+        margin: 0;
+        padding: 0;
+        color: #fff;
+        background-color: #000;
+        font-size: 10px;
+    }
+    div#hormenu a {
+        display: block;
+        padding: 2px;
+        margin: 0px;
+        color: #fff;
+        background-color: #000;
+        text-decoration: none;
+        cursor: pointer;
+        font-size: 10px;
+        padding-top: 8px;
+        padding-bottom: 8px;
+    }
+    div#hormenu a:hover {
+        background-color: #F2DA42;
+        color: #000;
+        text-decoration: none;
+        border: none;
+    }
+    div#hormenu li ul {
+        display: none;
+    }
+    div#hormenu li:hover ul {
+        display: block;
+        /*position: absolute;*/
+        z-index: 1;
+        min-width: 130px;
+        padding: 0;
+        margin: 0 0 0 -1px;
+        background: #444;
+    }
+    div#hormenu li li {
+        float: none;
+        border: none;
+        min-width: 130px;
+        background: none;
+        padding: 1px;
+        margin: 0px;
+        color: #999;
+        font-size: 10px;
+        color: #F2DA42;
+    }
+    div#hormenu li li a {
+        padding: 2px;
+        margin: 0px;
+        margin-left: 0px;
+        cursor: pointer;
+        font-weight: normal;
+    }
+    div#hormenu li li a:hover {
+        background-color: #F2DA42;
+        color: #000;
+    }
+    /*@media all and (min-height:700px){*/
+    div#hormenu.admin>ul>li.sub>ul>li {
+        position: relative;
+    }
+    div#hormenu.admin>ul>li.sub>ul>li>ul {
+        display: none!important;
+    }
+    div#hormenu.admin>ul>li.sub>ul>li b.s {
+        padding: 2px;
+        display: block;
+    }
+    div#hormenu.admin>ul>li.sub>ul>li:hover b.s {
+        color: #fff;
+        background: #000;
+    }
+    div#hormenu.admin>ul>li.sub>ul>li:hover>ul {
+        position: absolute;
+        display: block!important;
+        left: 100%!important;
+        margin-left: -4px;
+        top: 0px;
+    }
+    div#hormenu.admin>ul>li.sub>ul>li>ul>li:hover, div#hormenu.admin>ul>li.sub>ul>li>ul>li:hover a {
+        color: #000;
+        background: #F2DA42;
+        font-weight: bold!important;
+    }
+    div#hormenu ul.current>li>a, div#hormenu li.current>a, div#hormenu.admin>ul>li.sub>ul>li.current>ul>li.current, div#hormenu.admin>ul>li.sub>ul>li.current>ul>li.current>a, div#hormenu.admin>ul>li.sub>ul>li.current b.s {
+        color: #000!important;
+        background: #F2DA42!important;
+        font-weight: bold!important;
+        opacity: 0.8!important;
+    }
+}
+
+mat-form-field
+{
+    width: 120px;
+}
+
+.user-dropdown {
+    float: right;
+    margin-top: 15px;
+    text-transform: uppercase;
+}
+
+:host ::ng-deep .mat-form-field-underline {
+    display: none;
+}
+
+:host ::ng-deep .mat-form-field-appearance-fill .mat-form-field-flex {
+    background: none;
+}

@@ -1,0 +1,29 @@
+<mat-progress-bar *ngIf="loading"  mode="indeterminate" [color]="'primary'"></mat-progress-bar>
+<div id="scroll-helper"></div>
+<app-user-nav></app-user-nav>
+<div class="flex-grid">
+  <div class="flex-sidebar">
+    <app-tickets-sidebar (filterApplied)="whenApplyFilter($event)"></app-tickets-sidebar>
+  </div>
+  <div class="flex-content">
+    <app-search-panel (filterApplied)="whenApplyFilter($event)"></app-search-panel>
+    <app-table
+      [page]="page"
+      [displayedColumns]="columns"
+      [dataSource]="dataSource"
+      [dataSourceCount]="dataSourceCount"
+      (applySort)="whenApplySort($event)"
+      (detailsDialogClosed)="loadTickets()"
+      (vaildateDialogClosed)="loadTickets()"
+    >
+    </app-table>
+    <app-pagination [rpp]="rpp" [results_count]="dataSize" (pageChanged)="paginationChanged($event)"></app-pagination>
+
+    <div class="float-button">
+      <button *ngIf="canCreateTicket" mat-fab routerLink="/create-ticket">{{'core.table.createTicket' | translate}}</button>
+    </div>
+  </div>
+</div>
+
+
+<notifier-container></notifier-container>

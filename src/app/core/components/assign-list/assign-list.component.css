@@ -1,0 +1,50 @@
+ul {
+    list-style: none;
+    padding-left: 15px;
+}
+
+li {
+    width: 100%;
+    float: left;
+}
+
+label {
+    margin: 0;
+}
+
+.title {
+    padding: inherit;
+    margin: 0;
+    margin-bottom: 10px;
+    text-transform: capitalize;
+}
+
+.sidebar-list {
+    margin: 10px 0;
+}
+
+.sidebar-list li {
+    text-transform: capitalize;
+    cursor: pointer;
+}
+
+.sidebar-list li:hover {
+    opacity: 0.8;
+}
+
+.sidebar-list div {
+    margin-left: 5px;
+    float: left;
+    line-height: 2;
+}
+
+.labal {
+    float: right;
+    min-width: 27px;
+    padding: 3px 7px;
+    font-size: 12px;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 50%;
+    background-color: #FEDA44;
+}

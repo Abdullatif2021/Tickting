@@ -1,0 +1,284 @@
+<div class="main">
+  <div class="header">
+    <p class="path">Print & Stampa > PAgina 1 > Sezione 1</p>
+    <button class="button4" (click)="closeModal('activity-details-modal')"><img src="assets\images\exit.png"></button>
+    <button class="button5"><img src="assets\images\minimize.png"></button>
+  </div>
+
+  <div class="inline">
+    <form [formGroup]="activityDetails">
+      <ul>
+        <li>
+          <div class="inline-group">
+            <p class="context">{{ 'core.act_det.status' | translate }}</p>
+            <mat-form-field appearance="fill" class="parent-select"
+              [ngStyle]="{'background-color':selectedStates.background}">
+              <mat-select formControlName="state">
+                <mat-option *ngFor="let state of States" [value]="state.id">
+                  <span class="color-circle" [ngStyle]="{'background-color':state.background}"></span>
+                  <div>{{state.label}}</div>
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </li>
+        <li>
+          <div class="inline-group">
+            <p class="context">{{ 'core.act_det.prog' | translate }}</p>
+            <app-user-badge [items]="users_badge"></app-user-badge>
+            <fa-icon class="plus-circle-icon" [icon]="faPlusCircle" (click)="showUsersList()"></fa-icon>
+            <div class="auto-complete-wrap" [ngClass]="{'active': toggleUsersList}">
+<!--              <app-assign-users></app-assign-users>-->
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="inline-group">
+            <p class="context">{{ 'core.act_det.tester' | translate }}</p>
+            <app-user-badge [items]="testers_badge"></app-user-badge>
+            <fa-icon class="plus-circle-icon" [icon]="faPlusCircle" (click)="showTestersList()"></fa-icon>
+            <div class="auto-complete-wrap" [ngClass]="{'active': toggleTestersList}">
+<!--              <app-assign-users></app-assign-users>-->
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="inline-group">
+            <p class="context">{{ 'core.act_det.prior' | translate }}</p>
+            <mat-form-field appearance="fill" class="parent-select"
+              [ngStyle]="{'background-color':selectedPriorty.background}">
+              <mat-select formControlName="priority">
+                <mat-option *ngFor="let item of priorty" [value]="item.id">
+                  <span class="color-circle" [ngStyle]="{'background-color':item.background}"></span>
+                  <div>{{item.label}}</div>
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </li>
+        <li>
+          <div class="inline-group">
+            <p class="context">{{ 'core.act_det.creation' | translate }}</p>
+            <span>5 gen 15:41</span>
+          </div>
+        </li>
+        <li>
+          <div class="inline-group">
+            <p class="context">{{ 'core.act_det.time' | translate }}</p>
+            <span>1:30:76</span>
+          </div>
+        </li>
+      </ul>
+    </form>
+  </div>
+  <div class="split left">
+    <div class="content">
+
+      <div class="activity-info">
+        <form [formGroup]="activityBaseInfo">
+          <mat-form-field appearance="fill">
+            <mat-label>{{ 'core.act_det.title' | translate }}</mat-label>
+            <input matInput formControlName="title">
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>{{ 'core.act_det.descr' | translate }}</mat-label>
+            <textarea matInput formControlName="description"></textarea>
+          </mat-form-field>
+        </form>
+      </div>
+
+      <div class="sub-activities">
+        <!-- sub activities -->
+        <h4 class="title">{{ 'core.act_det.sub' | translate }}</h4>
+        <!-- <button class="attachment_button">Aggiungi allegato</button> -->
+        <div (click)="openModal('custom-modal-6')" class="subactivity">
+          <ul class="sub_ul">
+            <li>
+              <span class="color-square"></span>
+            </li>
+            <li>
+              <p class="sub_text">Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum
+                has been the industry’s standard dummy text ever since the 1500s
+              </p>
+              <span class="actions">
+                <img src="assets\images\add.png">
+                <span class="count">8/10</span>
+                <img class="attachment-icon" src="assets\images\clip (2).png">
+              </span>
+            </li>
+            <li class="state" style="background-color: #DE2F2F;">
+              <span>Da fare Bug</span>
+            </li>
+            <li style="padding: 14px;">
+              <app-user-badge [items]="users_badge"></app-user-badge>
+            </li>
+            <li>
+              <span style="color: #DE2F2F;">Urgente</span>
+            </li>
+          </ul>
+        </div>
+        <div class="subactivity">
+          <ul class="sub_ul">
+            <li>
+              <span class="color-square"></span>
+            </li>
+            <li>
+              <p class="sub_text">Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum
+                has been the industry’s standard dummy text ever since the 1500s
+              </p>
+              <span class="actions">
+                <img src="assets\images\add.png">
+                <span class="count">8/10</span>
+                <img class="attachment-icon" src="assets\images\clip (2).png">
+              </span>
+            </li>
+            <li class="state" style="background-color: #DE2F2F;">
+              <span>Da fare Bug</span>
+            </li>
+            <li style="padding: 14px;">
+              <app-user-badge [items]="users_badge"></app-user-badge>
+            </li>
+            <li>
+              <span style="color: #DE2F2F;">Urgente</span>
+            </li>
+          </ul>
+        </div>
+        <div class="subactivity">
+          <ul class="sub_ul">
+            <li>
+              <span class="color-square"></span>
+            </li>
+            <li>
+              <p class="sub_text">Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum
+                has been the industry’s standard dummy text ever since the 1500s
+              </p>
+              <span class="actions">
+                <img src="assets\images\add.png">
+                <span class="count">8/10</span>
+                <img class="attachment-icon" src="assets\images\clip (2).png">
+              </span>
+            </li>
+            <li class="state" style="background-color: #DE2F2F;">
+              <span>Da fare Bug</span>
+            </li>
+            <li style="padding: 14px;">
+              <app-user-badge [items]="users_badge"></app-user-badge>
+            </li>
+            <li>
+              <span style="color: #DE2F2F;">Urgente</span>
+            </li>
+          </ul>
+        </div>
+        <div class="subactivity">
+          <ul class="sub_ul">
+            <li>
+              <span class="color-square"></span>
+            </li>
+            <li>
+              <p class="sub_text">Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum
+                has been the industry’s standard dummy text ever since the 1500s
+              </p>
+              <span class="actions">
+                <img src="assets\images\add.png">
+                <span class="count">8/10</span>
+                <img class="attachment-icon" src="assets\images\clip (2).png">
+              </span>
+            </li>
+            <li class="state" style="background-color: #DE2F2F;">
+              <span>Da fare Bug</span>
+            </li>
+            <li style="padding: 14px;">
+              <app-user-badge [items]="users_badge"></app-user-badge>
+            </li>
+            <li>
+              <span style="color: #DE2F2F;">Urgente</span>
+            </li>
+          </ul>
+        </div>
+        <!-- end of sub activities -->
+      </div>
+      <!-- check list -->
+      <div class="checklist-container">
+
+        <h4 class="title">
+          <span>{{ 'core.act_det.list' | translate }}</span>
+          <p class="checklist-count">(3/8)</p>
+        </h4>
+        <div class="checklist-items">
+          <label class="checklist-item">
+            <div class="check">
+              <input type="checkbox" (change)="toggleVisibility()" />
+              <span class="checkmark"></span>
+            </div>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+              Lorem Ipsum has been the industry’s standard dummy text ever since the 1500si</p>
+          </label>
+          <label class="checklist-item">
+            <div class="check">
+              <input type="checkbox" (change)="toggleVisibility()" />
+              <span class="checkmark"></span>
+            </div>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+              Lorem Ipsum has been the industry’s standard dummy text ever since the 1500si</p>
+          </label>
+          <label class="checklist-item">
+            <div class="check">
+              <input type="checkbox" (change)="toggleVisibility()" />
+              <span class="checkmark"></span>
+            </div>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+              Lorem Ipsum has been the industry’s standard dummy text ever since the 1500si</p>
+          </label>
+          <label class="checklist-item">
+            <div class="check">
+              <input type="checkbox" (change)="toggleVisibility()" />
+              <span class="checkmark"></span>
+            </div>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+              Lorem Ipsum has been the industry’s standard dummy text ever since the 1500si</p>
+          </label>
+          <label class="checklist-item">
+            <div class="check">
+              <input type="checkbox" (change)="toggleVisibility()" />
+              <span class="checkmark"></span>
+            </div>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+              Lorem Ipsum has been the industry’s standard dummy text ever since the 1500si</p>
+          </label>
+        </div>
+      </div>
+      <div class="actions">
+        <div>
+          <button class='btn-default'>+</button>
+          <p>{{ 'core.act_det.plus' | translate }}</p><br>
+        </div>
+        <div>
+          <button class='btn-default'>+</button>
+          <p>{{ 'core.act_det.att_plus' | translate }}</p>
+        </div>
+      </div>
+      <!-- end of check list -->
+    </div>
+    <!-- attachment -->
+    <div class="attachments">
+      <h4 class="title">{{ 'core.act_det.att' | translate }}</h4>
+      <div class="file-thumbnail">
+        <img src="assets\images\demo.jpg">
+        <h5>Allegato 1</h5>
+        <div class="actions">
+          <div class="download">
+            <fa-icon [icon]="faDownload"></fa-icon>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="vl"></div>
+  <div class="split right">
+<!--    <app-comment></app-comment>-->
+  </div>
+</div>
+
+<jw-modal style="border-radius: 10px;" [width]="'98%'" id="custom-modal-6">
+  <app-sub-activity></app-sub-activity>
+</jw-modal>

@@ -1,0 +1,132 @@
+
+
+<div class="main">
+  <div class="header">
+    <button class="button3" (click)="openModal('custom-modal-2')" ><img src="assets\images\back.png"> Invia</button>
+    <p class="path">Print & Stampa > PAgina 1 > Sezione 1</p>
+    <button class="button4" (click)="closeModal('custom-modal-6')"><img src="assets\images\exit.png"></button>
+    <button class="button5" ><img src="assets\images\minimize.png"></button>
+  </div>
+  <div class="inline">
+    <ul>
+      <li>
+        <p id="context">Stato</p>
+        <span class="label">Da Fare Bug</span>
+      </li>
+      <li>
+        <p id="context">Programmatore</p>
+        <app-user-badge style="position: absolute; margin: -5px -59px;" [items]="users"></app-user-badge>
+      </li>
+      <li>
+        <p id="context">Tester</p>
+        <app-user-badge style="position: absolute; margin: -5px -28px;" [items]="users"></app-user-badge>
+      </li>
+      <li>
+        <p id="context">Priorita</p>
+        <span style="color: red;">Urgente</span>
+      </li>
+      <li>
+        <p id="context">Creazione</p>
+        <span>5 gen 15:41</span>
+      </li>
+      <li>
+        <p id="context">Tempo</p>
+        <span>1:30:76</span>
+      </li>
+    </ul>
+  </div>
+  <br>
+  <hr>
+  <div class="split left">
+    <div class="content1">
+      <div class="activity-info">
+        <h4 id="title">Titolo</h4>
+        <h1>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+           Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s</h1>
+        <p id="context">Descrizione</p>
+        <p>
+        </p>
+      </div>
+      <!-- check list -->
+    <div class="checklist-container">
+
+      <h4 id="title">Checklist</h4>
+      <p id="num">(3/8)</p>
+      <label class="checklist-item">
+        <div class="check">
+          <input type="checkbox" (change)="toggleVisibility()" />
+          <span class="checkmark"></span>
+        </div>
+
+        <p style="font-size: 17px;">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+            Lorem Ipsum has been the industry’s standard dummy text ever since the 1500si</p>
+      </label>
+      <label class="checklist-item">
+        <div class="check">
+          <input type="checkbox" (change)="toggleVisibility()" />
+          <span class="checkmark"></span>
+        </div>
+
+        <p style="font-size: 17px;">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+          Lorem Ipsum has been the industry’s standard dummy text ever since the 1500si</p>
+      </label>
+      <label class="checklist-item">
+        <div class="check">
+          <input type="checkbox" (change)="toggleVisibility()" />
+          <span class="checkmark"></span>
+        </div>
+
+        <p style="font-size: 17px;">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+          Lorem Ipsum has been the industry’s standard dummy text ever since the 1500si</p>
+      </label>
+      <label class="checklist-item">
+        <div class="check">
+          <input type="checkbox" (change)="toggleVisibility()" />
+          <span class="checkmark"></span>
+        </div>
+
+        <p style="font-size: 17px;">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+          Lorem Ipsum has been the industry’s standard dummy text ever since the 1500si</p>
+      </label>
+      <label class="checklist-item">
+        <div class="check">
+          <input type="checkbox" (change)="toggleVisibility()" />
+          <span class="checkmark"></span>
+        </div>
+
+        <p style="font-size: 17px;">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+          Lorem Ipsum has been the industry’s standard dummy text ever since the 1500si</p>
+      </label>
+
+    </div>
+
+    <div class="actions">
+      <div>
+        <button class='btn-default'>+</button>
+        <p>Nuovo</p><br>
+      </div>
+      <div>
+        <button class='btn-default'>+</button>
+        <p>Aggiungi Checklist</p>
+      </div>
+
+    </div>
+      <!-- end of check list -->
+
+    </div>
+     <!-- attachment -->
+     <div>
+      <h4 id="title">Allegati</h4>
+      <button class="attachment_button">Aggiungi allegato</button>
+      <img src="assets\images\file.png">
+      <h5>Allegato 1</h5>
+      </div>
+      <!-- attachment -->
+  </div>
+  <div class="vl"></div>
+  <div class="split right">
+<!--    <app-comment>-->
+<!--    </app-comment>-->
+  </div>
+</div>
+

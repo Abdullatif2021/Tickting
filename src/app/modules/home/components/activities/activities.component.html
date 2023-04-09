@@ -1,0 +1,23 @@
+<mat-progress-bar *ngIf="loading" mode="indeterminate" color="warn"></mat-progress-bar>
+<div id="scroll-helper"></div>
+<app-user-nav></app-user-nav>
+<div class="flex-grid">
+    <div class="flex-sidebar">
+        <app-activities-sidebar (filterApplied)="whenApplyFilter($event)"></app-activities-sidebar>
+    </div>
+    <div class="flex-content">
+        <app-search-panel (filterApplied)="whenApplyFilter($event)"></app-search-panel>
+        <app-table
+          [page]="page"
+          [dataSource]="dataSource"
+          [displayedColumns]="columns"
+          (applySort)="whenApplySort($event)"
+          (detailsDialogClosed)="loadActivities()"
+        ></app-table>
+        <app-pagination [rpp]="rpp"  [results_count]="dataSize" (pageChanged)="paginationChanged($event)"></app-pagination>
+        <div class="float-button">
+          <button *ngIf="canCreateActivity" mat-fab routerLink="/create-activity">{{'core.table.createActivity' | translate}}</button>
+        </div>
+    </div>
+</div>
+<notifier-container></notifier-container>

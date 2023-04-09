@@ -1,0 +1,44 @@
+{
+  "core": {
+    "act_det": {
+      "status": "Stato",
+      "prog": "Programmatore",
+      "des": "Descrizione"
+    },
+    "menu": {
+      "ticketing": "ticketing",
+      "activity": "attivita"
+    },
+    "table": {
+      "object": "oggetto",
+      "progress": "progresso",
+      "status": "stato",
+      "destination": "rep destination",
+      "problemarea": "area problematica",
+      "assign": "assegnato",
+      "tester": "tester",
+      "priority": "priorita",
+      "time": "tempo",
+      "activity": "attivita",
+      "acceptTicket": "accetta ticket"
+    },
+    "level": {
+      "status": "stato",
+      "priority": "priorita",
+      "assign": "assignato",
+      "tester": "tester"
+    },
+    "modal": {
+      "accept_ticket_title": "vuoi accettare il biglietto"
+    },
+    "button": {
+      "accept": "accetta",
+      "close": "vicina"
+    }
+  },
+  "shared": {
+    "pagination": {
+      "result_per_page": "Risultati per pagina"
+    }
+  }
+}

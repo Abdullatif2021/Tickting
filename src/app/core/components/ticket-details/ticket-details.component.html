@@ -1,0 +1,226 @@
+
+
+
+<!-- newwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww -->
+
+
+
+<div class="main">
+  <div class="header">
+    <button class="button4" (click)="closeModal('custom-modal-1')"  ><img src="assets\images\exit.png"></button>
+    <button class="button5" ><img src="assets\images\minimize.png"></button>
+  </div>
+      <div class="inline">
+        <ul>
+          <li>
+            <p id="context">Stato</p>
+            <div ngbDropdown class="custom-select" style="width:100%">
+              <button class="btn-info" style="width:100%"  [ngStyle]="{'background-color': optionColor}" id="company" ngbDropdownToggle>{{selected}}</button>
+              <div class="cp" ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                <div class="cp-dropdown">
+                  <div class="cp-dropdown__select">
+                    <h3 class="cp-dropdown__select-option" *ngFor="let option of States" (click)="selectState(option)">{{option.label}}</h3>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          <div class="vli"></div>
+          <li>
+            <p id="context">Rep. Destinazione</p>
+            <span class="span" >Reparto 4</span>
+          </li>
+          <div class="vli"></div>
+          <li>
+            <p id="context">Area problematica</p>
+            <span class="span" style="position: absolute;margin: 0px -59px;" >{{ groupA.problem_area }}</span>
+          </li>
+          <div class="vli"></div>
+          <li>
+            <p id="context">Priorita</p>
+            <select [ngStyle]="{'color': optionColor2}" class="custom-select2" (change)="selectPriorty($event)">
+              <option style="outline-style: none;" *ngFor="let option of priorty" [value]="option.id" [ngStyle]="{'color':option.background}"  [selected]="selectedStates === option.label" >{{ option.label }}</option>
+            </select>
+          </li>
+          <div class="vli"></div>
+          <li>
+            <p id="context">Creazione</p>
+            <span style="position: absolute; margin: 0px -31px;" class="span">{{ groupA.createdAt }}</span>
+          </li>
+          <div class="vli"></div>
+          <li>
+            <p id="context">Tempo</p>
+            <span class="span">1:30:76</span>
+          </li>
+        </ul>
+      </div>
+  <br>
+  <hr>
+    <div class="split left">
+      <div class="content1">
+        <div class="activity-info">
+          <h4 id="title">{{ 'core.act_det.title' | translate }}</h4>
+          <h1>{{ groupA.subject }}</h1>
+          <p id="context">{{ 'core.act_det.des' | translate }}</p>
+
+          <p>{{ groupA.description }}
+             Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+              Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s,
+              when an unknown printer took a galley of type and scrambled it to make a
+              type specimen book. It has survived not only five centuries, but also the
+              leap into electronic typesetting, remaining essentially unchanged. It was
+              popularised in the 1960s with the release of Letraset sheets containing
+              Lorem Ipsum passages, and more recently with desktop publishing software
+              like Aldus PageMaker including versions of Lorem Ipsum.
+          </p>
+        </div>
+      <div>
+        <!-- sub activities -->
+        <h4 id="title">{{ 'core.act_det.act' | translate }}</h4>
+        <button (click)="openmodal()"  class="attachment_button">Aggiungi allegato</button>
+
+        <div (click)="openModal('custom-modal-6')" class="subactivity">
+          <ul *ngFor="let item of activities"  class="sub_ul">
+            <li class="sub_li_square">
+              <span class="color-square"></span>
+            </li>
+            <li class="sub_li">
+              <p class="sub_text">
+                {{ item.name  }}
+              </p>
+              <span *ngIf="item.checkList"  style="padding-top: 10px;">
+                <mat-icon><img src="assets\images\add.png"></mat-icon>
+                <span style="margin-top: 8px;">8/10</span>
+                <mat-icon style="padding: 0px 5px;"><img src="assets\images\clip (2).png"></mat-icon>
+              </span>
+            </li>
+            <li class="sub_li_button">
+              <span class="success">Da fare Bug</span>
+            </li>
+            <li *ngIf="item.assignedUsers" style="padding: 14px;">
+              <app-user-badge [items]="item.assignedUsers"></app-user-badge>
+            </li>
+            <li style="padding: 14px 120px;">
+              <span [ngStyle]="{'color':item.priority.color}" >{{ item.priority.label }}</span>
+            </li>
+          </ul>
+        </div>
+        <!-- create activity -->
+        <div *ngIf="create"  class="subactivity">
+          <ul class="sub_ul">
+            <li class="sub_li_square">
+              <span class="color-square"></span>
+            </li>
+            <li class="sub_li1">
+              <select  (change)="selectcontainer($event)">
+                <option [(ngModel)]="createactivity.container_id" *ngFor="let option of containers" [value]="option.id"  [selected]="selectedcontainer === option.id" >{{ option.name }}</option>
+              </select>
+              <input [(ngModel)]="createactivity.name" class="input_create" type="text"><input (click)="createticket()" class="input_create1" type="submit"><button (click)="close_modal()" class="button_create">x</button>
+                <!-- <textarea [(ngModel)]="item.name" (keyup.enter)="createticket()" style="width: 312px;"></textarea>
+              <span style="padding-top: 14px; margin: 8px;">
+                <mat-icon><img src="assets\images\add.png"></mat-icon>
+                <span style="padding-top: 14px; margin: 8px;">0/0</span>
+                <mat-icon style="padding: 0px 5px;"><img src="assets\images\clip (2).png"></mat-icon>
+              </span> -->
+            </li>
+          </ul>
+        </div>
+        <!-- end of create activity -->
+        <!-- end of sub activities -->
+      </div>
+      <!-- check list -->
+      <div class="checklist-container">
+
+        <h4 id="title">{{ 'core.act_det.list' | translate }}</h4>
+        <p id="num">(3/8)</p>
+        <label class="checklist-item">
+          <div class="check">
+            <input type="checkbox" (change)="toggleVisibility()" />
+            <span class="checkmark"></span>
+          </div>
+
+          <p style="font-size: 17px;">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+            Lorem Ipsum has been the industry’s standard dummy text ever since the 1500si</p>
+        </label>
+        <label class="checklist-item">
+          <div class="check">
+            <input type="checkbox" (change)="toggleVisibility()" />
+            <span class="checkmark"></span>
+          </div>
+
+          <p style="font-size: 17px;">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+            Lorem Ipsum has been the industry’s standard dummy text ever since the 1500si</p>
+        </label>
+        <label class="checklist-item">
+          <div class="check">
+            <input type="checkbox" (change)="toggleVisibility()" />
+            <span class="checkmark"></span>
+          </div>
+
+          <p style="font-size: 17px;">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+            Lorem Ipsum has been the industry’s standard dummy text ever since the 1500si</p>
+        </label>
+        <label class="checklist-item">
+          <div class="check">
+            <input type="checkbox" (change)="toggleVisibility()" />
+            <span class="checkmark"></span>
+          </div>
+
+          <p style="font-size: 17px;">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+            Lorem Ipsum has been the industry’s standard dummy text ever since the 1500si</p>
+        </label>
+        <label class="checklist-item">
+          <div class="check">
+            <input type="checkbox" (change)="toggleVisibility()" />
+            <span class="checkmark"></span>
+          </div>
+
+          <p style="font-size: 17px;">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+            Lorem Ipsum has been the industry’s standard dummy text ever since the 1500si</p>
+        </label>
+
+      </div>
+
+      <div class="actions">
+        <div>
+          <button class='btn-default'>+</button>
+          <p>{{ 'core.act_det.plus' | translate }}</p><br>
+        </div>
+        <div>
+          <button class='btn-default'>+</button>
+          <p>{{ 'core.act_det.att_plus' | translate }}</p>
+        </div>
+
+      </div>
+      <!-- end of check list -->
+
+    </div>
+    <!-- attachment -->
+    <!-- <div>
+      <h4 id="title">{{ 'core.act_det.att' | translate }}</h4>
+      <button class="attachment_button">
+        <input (change)="onFileSelected($event.target.files)" style="opacity: 0;" type="file"  name="theFile"/>
+        <p style="margin: inherit;">{{ 'core.act_det.att_but' | translate }}</p>
+      </button>
+      <div style="display: inline-flex;">
+      <div  class="card"  *ngFor="let item of attachments" >
+        <img  src="assets\images\attachment.png">
+        <span style="max-width: 20px; display: flex;">{{ item.filename | slice:0:6}}</span>
+        <button style="border: none; background: none;" (click)="goToLink()"><img  src="assets\images\download.png"></button>
+      </div>
+    </div>
+    </div> -->
+    <!-- attachment -->
+
+  </div>
+  <div class="vl"></div>
+  <div class="split right">
+<!--    <app-comment [childComments]="parentComments" (childToParent)=childToParent($event)>-->
+<!--    </app-comment>-->
+  </div>
+</div>
+
+
+<jw-modal style="border-radius: 10px;" [width]="'98%'" id="custom-modal-6">
+  <app-sub-activity></app-sub-activity>
+</jw-modal>

@@ -1,0 +1,22 @@
+<div class="accept-wrapper">
+  <h2>{{'core.modal.accept_ticket_title'|translate}}</h2>
+  <div class="actions">
+
+    <mat-radio-group [(ngModel)]="selectedValue" ngModel aria-label="Select an option">
+      <mat-radio-button style="display:block;" value="1">{{'core.accept_tick.aprrove' | translate }}</mat-radio-button>
+      <mat-radio-button class="button8" value="2">{{'core.accept_tick.reject' | translate }}</mat-radio-button>
+    </mat-radio-group>
+    <mat-form-field *ngIf="selectedValue == '2'" class="example-full-width">
+      <mat-label>{{'core.accept_tick.enter' | translate }}</mat-label>
+      <textarea matInput [(ngModel)]="comment"></textarea>
+    </mat-form-field>
+    <button (click)="validateTicket(selectedValue)" class="accept-ticket" mat-flat-button>
+      {{'core.accept_tick.accept' | translate }}
+    </button>
+    <button (click)="close()" class="close-ticket" mat-flat-button>
+      {{ 'core.accept_tick.close' | translate }}
+    </button>
+
+
+  </div>
+</div>

@@ -1,0 +1,763 @@
+/* modal */
+
+.jw {
+  position: fixed;
+  display: none;
+  top: -42px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  z-index: 1000;
+  overflow: auto;
+}
+
+.body {
+  background: #fff;
+  padding: 0px;
+  border-radius: 10px;
+  margin: 5% auto;
+  max-width: 96%;
+  max-height: 1000px;
+  position: relative;
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+
+.jw-background {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #000;
+  opacity: 0.75;
+  z-index: 900;
+}
+
+body.jw-open {
+  overflow: hidden;
+}
+
+/* modal */
+
+.search-panel {
+  background-color: #fff;
+  padding: 10px 30px;
+  margin: 0 0 15px 0;
+  display: flex;
+  border-radius: 15px;
+}
+
+.example-form-field {
+  width: 200px;
+}
+
+.search-input, .search-input:hover, .search-input:focus {
+  width: 290px;
+  border: 0;
+  outline: 0;
+  height: 30px;
+  border-bottom: 1px solid #999;
+}
+
+.integraa-btn {
+  margin: -6px;
+  color: rgb(0, 0, 0);
+  background-color: #fcda4b;
+  border-radius: 20px;
+  padding: 4px;
+  border: 0px;
+  font-size: 11px;
+  font-weight: 600;
+  min-width: 75px;
+  margin-top: 5px;
+  text-align: center;
+  font-family: sans-serif;
+  margin-left: 10px;
+}
+
+.header88 {
+  border-radius: 15px;
+  padding: 0px;
+  text-align: left;
+  background: #000000;
+  color: rgb(247, 197, 33);
+  font-size: 25px;
+  top: 0;
+  z-index: 111111111111;
+}
+
+.header88 p {
+  padding: 16px;
+}
+
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+  padding-left: 30px;
+}
+
+.font {
+  font-weight: 410;
+}
+
+.button {
+  position: relative;
+  padding-left: 1044px;
+  padding-top: 20px;
+}
+
+.button1 {
+  margin: -6px;
+  color: rgb(245, 239, 239);
+  background-color: #c41509;
+  border-radius: 20px;
+  padding: 9px;
+  border: 0px;
+  font-size: 11px;
+  font-weight: 600;
+  min-width: 75px;
+  margin-top: 5px;
+  text-align: center;
+  font-family: sans-serif;
+  margin-left: 10px;
+}
+
+.attachment_button {
+  float: right;
+  width: 132px;
+  height: 23px;
+  margin: -37px 5px;
+  background-color: #fcda4b;
+  color: rgb(0, 0, 0);
+  border-radius: 11px;
+  border: none;
+}
+
+.button2 {
+  margin: -6px;
+  color: rgb(0, 0, 0);
+  background-color: #fcda4b;
+  border-radius: 20px;
+  padding: 9px;
+  border: 0px;
+  font-size: 11px;
+  font-weight: 600;
+  min-width: 75px;
+  margin-top: 5px;
+  text-align: center;
+  font-family: sans-serif;
+  margin-left: 10px;
+}
+
+.button3 {
+  color: rgb(0, 0, 0);
+  background-color: #fcda4b;
+  border-radius: 20px;
+  border: 0px;
+  padding-left: 4px;
+  margin-left: 35px;
+  margin-top: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  min-width: 70px;
+  text-align: center;
+  font-family: sans-serif;
+}
+
+.NgxEditor__Wrapper {
+  height: 205px;
+}
+
+.tool {
+  display: none;
+}
+
+/* start modal 2 */
+
+.main {
+  width: 100%;
+  float: left;
+  min-height: 680px;
+}
+
+.header {
+  background-color: #9c9c9c14;
+  height: 40px;
+  width: 100%;
+}
+
+.button5 {
+  float: right;
+  border: none;
+  border-radius: 3px;
+  line-height: 40px;
+  padding: 0;
+}
+
+.button4 {
+  float: right;
+  border: none;
+  border-radius: 3px;
+  line-height: 40px;
+  margin: 0px 15px 0 8px;
+  padding: 0;
+}
+
+.path {
+  font-weight: 500;
+  float: left;
+  margin: 0px 0 0 21px;
+  line-height: 40px;
+}
+
+.left {
+  float: left;
+  padding-left: 1.5%;
+  padding-right: 1.5%;
+  width: 60%;
+  background-color: rgb(255, 255, 255);
+  padding-top: 0px;
+  max-height: 500px;
+  border-right: 1px solid #F3F3F3;
+  overflow: auto;
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+.right {
+  height: 100%;
+  float: left;
+  width: 40%;
+  max-height: 500px;
+  background-color: #FBFBFB;
+  overflow-x: hidden;
+}
+
+.inline ul {
+  padding: 0 1.4%;
+  width: 100%;
+  display: flex;
+  list-style-type: none;
+  flex-direction: row;
+  margin: 0;
+}
+
+.vl {
+  border-left: 1px solid#80808014;
+  height: 100%;
+  position: absolute;
+  left: 60%;
+  right: 40%;
+  display: none;
+  top: 0;
+}
+
+.inline {
+  float: left;
+  width: 100%;
+  padding: 1% 0;
+  background: #fff;
+  border-bottom: 1px solid #F3F3F3;
+}
+
+.inline .header {
+  border-left: 1px solid#9c9c9c14;
+  height: 100%;
+  position: absolute;
+  left: 60%;
+  right: 40%;
+  /* margin-left: -3px; */
+  top: 0;
+}
+
+.inline-group {
+  float: left;
+  width: 100%;
+  position: relative;
+  padding-left: 15px;
+}
+
+.inline li {
+  border-right: 1px solid #F3F3F3;
+  text-align: left;
+  flex-grow: 6;
+}
+
+.inline ul li:first-child .inline-group {
+  padding-left: 0;
+}
+
+.inline li:last-child {
+  border-right: 0;
+}
+
+hr {
+  margin-top: 3rem;
+  margin-bottom: 0rem;
+}
+
+.context {
+  float: left;
+  width: 100%;
+  margin: 0 0 10px 0;
+  color: #B3B3B3;
+}
+
+::ng-deep .inline .user-badge-list ul {
+  padding-left: 0 !important;
+  float: left;
+}
+
+.content {
+  float: left;
+}
+
+.activity-info {
+  float: left;
+  margin: 20px 0;
+  width: 100%;
+}
+
+.activity-info .mat-form-field {
+  width: 100%;
+}
+
+.activity-info .mat-form-field input {
+  min-height: 50px;
+  margin-top: 15px;
+  border: 1px solid transparent;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.activity-info .mat-form-field textarea {
+  min-height: 100px;
+  margin-top: 15px;
+  border: 1px solid transparent;
+  text-align: justify;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.activity-info .mat-form-field input:focus, .activity-info .mat-form-field textarea:focus {
+  border: 1px solid #d1d1d1;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+:host ::ng-deep .mat-form-field-underline {
+  display: none;
+}
+
+:host ::ng-deep .activity-info .mat-form-field-appearance-fill .mat-form-field-flex {
+  background: none;
+}
+
+:host ::ng-deep .mat-form-field-label {
+  font-size: 20px !important;
+  color: #000;
+}
+
+:host ::ng-deep .mat-form-field-appearance-fill .mat-form-field-flex {
+  padding: 0 !important;
+}
+
+.sub-activities {
+  float: left;
+}
+
+.label {
+  position: absolute;
+  margin: -3px -20px;
+  color: rgb(255, 255, 255);
+  padding: 5px 21px;
+  font-family: Arial;
+  border-radius: 5px;
+  background-color: #dd3030;
+}
+
+.title {
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+.checklist-container span {
+  float: left;
+}
+
+.checklist-container .checklist-count {
+  float: left;
+  margin-left: 10px;
+}
+
+/* start checkbox */
+
+.checklist-item {
+  position: relative;
+  font-size: 22px;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+
+.checklist-item input {
+  position: absolute;
+  opacity: 0;
+  left: 0px;
+  top: 0px;
+  cursor: pointer;
+}
+
+.checklist-item p {
+  padding-left: 30px;
+  font-size: 14px;
+}
+
+/* Create a custom checkbox */
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: 1px solid #707781;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* When the checkbox is checked, add a blue background */
+
+.checklist-item input:checked~.checkmark {
+  background-color: #fcda4b;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+
+.checklist-item input:checked~.checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+
+.checklist-items {
+  margin-left: 10px;
+  float: left;
+}
+
+.checklist-item .checkmark:after {
+  left: 6px;
+  top: 3px;
+  width: 7px;
+  height: 11px;
+  border: solid rgb(255, 255, 255);
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+}
+
+.check {
+  position: relative;
+  float: left
+}
+
+/* end checkbox */
+
+.btn-default {
+  color: #535353ee;
+  font-size: 30px;
+  font-size: 40px;
+  border: none;
+  background-color: rgb(255, 255, 255);
+}
+
+/* end modal 2 */
+
+.actions {
+  float: left;
+  width: 100%;
+}
+
+.actions div {
+  float: left;
+  clear: both;
+  margin-bottom: 15px;
+}
+
+.actions p {
+  float: right;
+}
+
+.checklist-container {
+  float: left;
+  margin: 1% 0;
+}
+
+/* start sub activity */
+
+.subactivity {
+  display: inline-flex;
+  width: 100%;
+}
+
+.sub_text {
+  margin: 0;
+  max-width: 380px;
+  float: left;
+}
+
+.state {
+  color: white;
+  display: block;
+  text-align: center;
+  background-color: #f44336;
+}
+
+.state span {
+  line-height: 80px;
+}
+
+.color-square {
+  display: block;
+  width: 10px;
+  height: 10px;
+  margin: 0px auto;
+  border-radius: 2px;
+  background-color: #f44336;
+}
+
+.color-square::after {
+  content: '';
+  background-color: #DFDFDF;
+  width: 2px;
+  height: 50px;
+  margin: 0px auto;
+  margin-top: 20px;
+  margin-bottom: 5px;
+  right: 0;
+  left: 0;
+  display: block;
+  position: absolute;
+}
+
+.sub-activities .subactivity:last-child .color-square::after {
+  content: none;
+}
+
+.sub_ul {
+  list-style-type: none;
+  display: flex;
+  padding: 0;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  margin-top: 1px;
+}
+
+.sub_ul li {
+  flex-grow: 5;
+  position: relative;
+}
+
+.sub_ul .count {
+  margin: 0px 5px;
+}
+
+.attachment-icon {
+  float: right;
+  margin-right: 15px;
+  margin-top: 15px;
+}
+
+.sub_ul .actions {
+  float: revert;
+  line-height: 50px;
+}
+
+.sub_li_button {
+  display: block;
+  text-decoration: none;
+  margin: 0px 0px -3px;
+}
+
+/* end sub activity */
+
+/* select */
+
+.custom-select {
+  max-width: 160px;
+  height: 33px;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.3;
+  color: #ffffff;
+  vertical-align: middle;
+  border-radius: .25rem;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+  outline: none;
+}
+
+.custom-select2 {
+  font-weight: 400;
+  border-radius: .25rem;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border: none;
+  margin-top: 2px;
+  outline: none;
+}
+
+.select-items div:hover {
+  background-color: none;
+  color: none;
+}
+
+/* end of select */
+
+.attachments {
+  float: left;
+  margin-left: 10px;
+}
+
+.attachments .title {
+  margin: 10px 0;
+}
+
+.file-thumbnail {
+  float: left;
+  max-width: 150px;
+  margin: 2% 0;
+  cursor: pointer;
+}
+
+.file-thumbnail:hover {
+  box-shadow: 0px 0.5px 0px 1px #d7d7d7;
+}
+
+.file-thumbnail h5 {
+  text-align: center;
+  margin: 5px 0;
+}
+
+.file-thumbnail img {
+  width: 100%;
+}
+
+.file-thumbnail .actions {
+  display: flex;
+  flex-direction: row;
+}
+
+.file-thumbnail .actions div {
+  margin: 0 12px;
+}
+
+.file-thumbnail .actions .download {
+  color: #DE2F2F;
+  margin: 0px auto;
+}
+
+.auto-complete-wrap {
+  float: left;
+  max-width: 100%;
+  display: none;
+  border: 1px solid #f3f3f3;
+  background: #fff;
+  margin-left: 20px;
+  top: 50px;
+  position: absolute;
+}
+
+.auto-complete-wrap.active {
+  display: block;
+}
+
+.auto-complete-wrap .mat-option {
+  padding: 0 5px;
+}
+
+.user-badge {
+  display: inline-block;
+  min-width: 30px;
+  font-size: 12px;
+  text-align: center;
+  line-height: 30px;
+  font-weight: bold;
+  border-radius: 50%;
+  margin: 0 1px;
+  background-color: #FEDA44;
+}
+
+.plus-circle-icon {
+  font-size: 15px;
+}
+
+.color-circle {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 8px;
+}
+
+.color-circle+div {
+  display: inline-block;
+  margin-left: 10px;
+}
+
+.panel-class {
+  margin-top: 30px !important;
+  color: #fff;
+  text-align: center;
+}
+
+:host ::ng-deep .mat-select-value {
+  text-align: center !important;
+  color: #fff !important;
+}
+
+:host ::ng-deep .mat-form-field-appearance-fill .mat-form-field-infix {
+  padding: 0 0 0.75em 0 !important;
+}
+
+.parent-select {
+  border-radius: 5px;
+}
+
+:host ::ng-deep .mat-form-field-wrapper {
+  padding: 0 !important;
+}
+
+:host ::ng-deep .mat-select-arrow {
+  border: none !important;
+} 
+
+@media only screen and (min-width: 1920px) {
+  .left, .right {
+    max-height: 700px;
+  }
+}
